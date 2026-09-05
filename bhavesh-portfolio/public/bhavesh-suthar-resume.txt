@@ -1,0 +1,39 @@
+BHAVESH SUTHAR
+DATA ANALYST -> ASPIRING DATA SCIENTIST
+
+CONTACT
+Email: bhavesh.suthar.contact@example.com
+LinkedIn: https://linkedin.com/in/bhavesh-suthar
+GitHub: https://github.com/bhavesh-gff
+
+PROFILE
+BCA Computer Science student focused on Data Analytics and the path toward Data Science. Enjoys working with data, discovering patterns, building visualisations, and turning analysis into useful insights.
+
+EDUCATION
+BCA Computer Science
+
+CORE SKILLS
+Python, Pandas, NumPy, SQL, Excel, Matplotlib, Power BI, Statistics, Exploratory Data Analysis, Machine Learning, MySQL, PostgreSQL, SQLite, Git, GitHub, Streamlit, React, Node.js
+
+CURRENT FOCUS
+- Statistics
+- Exploratory Data Analysis
+- Machine Learning Fundamentals
+
+AREAS OF INTEREST
+- Data Cleaning & Transformation
+- Predictive Modelling
+- Business Intelligence
+- Analytical Systems
+
+CERTIFICATIONS
+- IBM SkillsBuild Big Data & Business Management Internship, AICTE / BharatCares, 2025
+- Python for Data Analytics & Data Structures, Academic Certification, 2025
+- SQL & Relational Database Management, Technical Training Program, 2024
+
+PORTFOLIO PROJECTS
+- Sales Data Analysis
+- Smart Inventory ERP
+- Decision-Making Tool
+
+Generated from the Bhavesh Suthar portfolio.
