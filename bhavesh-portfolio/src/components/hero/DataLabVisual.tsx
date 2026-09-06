@@ -11,11 +11,11 @@ export default function DataLabVisual({ onCursorChange }: DataLabVisualProps) {
   const [activeNode, setActiveNode] = useState<number | null>(null);
 
   const nodes = [
-    { id: 1, label: "RAW DATA", x: 50, y: 40, detail: "50,000+ rows ingested" },
-    { id: 2, label: "CLEANING", x: 150, y: 120, detail: "Null imputation & type casting" },
-    { id: 3, label: "ANALYSIS", x: 260, y: 70, detail: "Pandas aggregation & SQL queries" },
-    { id: 4, label: "INSIGHT", x: 370, y: 140, detail: "Revenue drivers identified" },
-    { id: 5, label: "DECISION", x: 450, y: 80, detail: "Actionable commercial strategy" },
+    { id: 1, label: "RAW DATA", x: 50, y: 40, detail: "Dataset retrieved" },
+    { id: 2, label: "CLEANING", x: 150, y: 120, detail: "Fields checked and transformed" },
+    { id: 3, label: "ANALYSIS", x: 260, y: 70, detail: "Patterns compared across segments" },
+    { id: 4, label: "INSIGHT", x: 370, y: 140, detail: "Findings summarized" },
+    { id: 5, label: "DECISION", x: 450, y: 80, detail: "Business recommendations" },
   ];
 
   return (

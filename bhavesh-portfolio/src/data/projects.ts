@@ -70,30 +70,27 @@ export const projectsData: Project[] = [
     ],
     githubUrl: "https://github.com/bhavesh-gff/sales-data-analysis-python",
     caseStudy: {
-      problem: "A simulated retail enterprise faced stagnant quarterly revenue growth with ambiguous visibility into top-performing product categories and seasonal regional sales swings.",
-      objective: "To clean, process, and analyze multi-region transaction logs to uncover underlying sales drivers and formulate actionable commercial recommendations.",
-      dataset: "Transactional retail data comprising 50,000+ rows of order items, customer demographics, regional stores, and timestamp vectors.",
+      problem: "Car sales data needs to be explored to understand sales trends and differences in model performance.",
+      objective: "Analyze the car sales data with Python to identify useful patterns and business insights.",
+      dataset: "Car sales dataset.",
       dataPreparation: [
-        "Handled missing values in customer demographic attributes using median imputation.",
-        "Corrected date-time string irregularities and extracted temporal features (Month, DayOfWeek, Quarter).",
-        "Filtered out erroneous negative transaction amounts and duplicate records."
+        "Prepared the car sales fields for exploratory analysis.",
+        "Checked the data values used for trend and model comparisons."
       ],
       analysis: [
-        "Calculated rolling averages and month-over-month percentage changes in aggregate revenue.",
-        "Grouped transaction metrics by product category and geographic region to isolate high-margin drivers.",
-        "Executed correlation matrix checks between discount percentages and order volumes."
+        "Explored sales trends across the dataset.",
+        "Compared model performance to identify useful differences.",
+        "Summarized patterns that support business interpretation."
       ],
       visualization: [
-        "Plotted time-series revenue trajectories using Matplotlib to highlight peak shopping quarters.",
-        "Generated comparative bar distributions for regional sales contributions.",
-        "Constructed correlation heatmaps for price elasticity checks."
+        "Created visual comparisons to communicate sales trends and model performance.",
+        "Used data visualization to make the analysis easier to interpret."
       ],
       insights: [
-        "Category A accounted for 42% of total net revenue despite representing only 25% of catalog items.",
-        "Q4 seasonal spikes were driven primarily by electronics rather than apparel.",
-        "High discount rates (>25%) yielded diminishing returns on customer lifetime value."
+        "The analysis highlights sales trends and differences in model performance.",
+        "The findings provide practical business insights from the car sales data."
       ],
-      result: "Delivered a structured analytical report pinpointing core revenue drivers, enabling smarter inventory allocation strategies for future seasonal cycles."
+      result: "Delivered a focused sales analysis with visual findings and business insights."
     }
   }
 ];

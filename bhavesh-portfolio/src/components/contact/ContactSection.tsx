@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Mail, Linkedin, Github, Download } from "lucide-react";
 import { socialLinks } from "@/data/social";
 
@@ -8,6 +9,8 @@ interface ContactSectionProps {
 }
 
 export default function ContactSection({ onCursorChange }: ContactSectionProps) {
+  const [emailCopied, setEmailCopied] = useState(false);
+
   return (
     <section id="connect" className="py-24 px-4 flex justify-center border-t border-white/5">
       <div className="w-full max-w-7xl text-center flex flex-col items-center">
@@ -34,9 +37,14 @@ export default function ContactSection({ onCursorChange }: ContactSectionProps) 
                 className="px-6 py-3.5 rounded-xl bg-[#0A0D13] hover:bg-[#111621] border border-white/10 hover:border-[#8B5CF6]/50 text-white font-mono text-xs font-semibold flex items-center gap-2.5 transition-all shadow-xl"
                 onMouseEnter={() => onCursorChange(social.platform.toUpperCase())}
                 onMouseLeave={() => onCursorChange("")}
+                onClick={isEmail ? () => {
+                  void navigator.clipboard?.writeText("bhaveshsuthar08835@gmail.com");
+                  setEmailCopied(true);
+                  window.setTimeout(() => setEmailCopied(false), 2000);
+                } : undefined}
               >
                 <Icon size={16} className="text-[#8B5CF6]" />
-                <span>{social.platform.toUpperCase()}</span>
+                <span>{isEmail && emailCopied ? "COPIED EMAIL" : social.platform.toUpperCase()}</span>
               </a>
             );
           })}

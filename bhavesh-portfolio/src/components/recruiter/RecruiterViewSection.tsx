@@ -92,7 +92,7 @@ export default function RecruiterViewSection({ onCursorChange }: Readonly<Recrui
               <span>GITHUB PROFILE</span>
             </a>
             <a
-              href="https://linkedin.com/in/bhavesh-suthar"
+              href="https://www.linkedin.com/in/bhavesh-suthar-00761b315/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-3 rounded-xl bg-[#07090D] hover:bg-[#111621] border border-white/10 text-white font-mono text-xs font-semibold flex items-center justify-center gap-2 transition-all"

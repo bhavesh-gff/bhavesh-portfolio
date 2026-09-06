@@ -53,7 +53,7 @@ export default function CaseStudyModal({ project, onClose, onCursorChange }: Cas
 
           {/* Dataset Info */}
           <div>
-            <h4 className="text-xs font-mono text-[#64748B] mb-2 uppercase tracking-wider">01 // Dataset</h4>
+            <h4 className="text-xs font-mono text-[#64748B] mb-2 uppercase tracking-wider">DATASET</h4>
             <div className="bg-[#07090D] p-4 rounded-xl border border-white/10 text-sm text-white font-mono">
               {cs.dataset}
             </div>
@@ -61,11 +61,10 @@ export default function CaseStudyModal({ project, onClose, onCursorChange }: Cas
 
           {/* Data Preparation */}
           <div>
-            <h4 className="text-xs font-mono text-[#64748B] mb-2 uppercase tracking-wider">02 // Data Preparation & Cleaning</h4>
+            <h4 className="text-xs font-mono text-[#64748B] mb-2 uppercase tracking-wider">DATA PREPARATION & CLEANING</h4>
             <div className="flex flex-col gap-2">
               {cs.dataPreparation.map((prep, i) => (
                 <div key={prep} className="flex items-start gap-3 bg-[#0D1118] p-3 rounded-lg border border-white/5 text-sm text-[#94A3B8]">
-                  <span className="text-[#8B5CF6] font-mono">0{i + 1}</span>
                   <span>{prep}</span>
                 </div>
               ))}
@@ -75,7 +74,7 @@ export default function CaseStudyModal({ project, onClose, onCursorChange }: Cas
           {/* Analysis & Visualization */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h4 className="text-xs font-mono text-[#64748B] mb-2 uppercase tracking-wider">03 // Analysis Steps</h4>
+              <h4 className="text-xs font-mono text-[#64748B] mb-2 uppercase tracking-wider">ANALYSIS STEPS</h4>
               <ul className="flex flex-col gap-2">
                 {cs.analysis.map((step) => (
                   <li key={step} className="text-xs text-[#94A3B8] bg-[#0D1118] p-3 rounded-lg border border-white/5 flex items-center gap-2">
@@ -86,7 +85,7 @@ export default function CaseStudyModal({ project, onClose, onCursorChange }: Cas
               </ul>
             </div>
             <div>
-              <h4 className="text-xs font-mono text-[#64748B] mb-2 uppercase tracking-wider">04 // Visualisation & Insights</h4>
+              <h4 className="text-xs font-mono text-[#64748B] mb-2 uppercase tracking-wider">VISUALISATION & INSIGHTS</h4>
               <ul className="flex flex-col gap-2">
                 {cs.insights.map((insight) => (
                   <li key={insight} className="text-xs text-white bg-[#0D1118] p-3 rounded-lg border border-white/5 flex items-start gap-2">
@@ -100,7 +99,7 @@ export default function CaseStudyModal({ project, onClose, onCursorChange }: Cas
 
           {/* Result & Impact */}
           <div>
-            <h4 className="text-xs font-mono text-[#64748B] mb-2 uppercase tracking-wider">05 // Result & Commercial Impact</h4>
+            <h4 className="text-xs font-mono text-[#64748B] mb-2 uppercase tracking-wider">RESULT & COMMERCIAL IMPACT</h4>
             <div className="bg-[#8B5CF6]/10 border border-[#8B5CF6]/30 p-6 rounded-xl text-sm text-white font-medium leading-relaxed">
               {cs.result}
             </div>
