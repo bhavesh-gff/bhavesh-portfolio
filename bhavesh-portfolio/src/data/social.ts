@@ -7,7 +7,7 @@ export interface SocialLink {
 export const socialLinks: SocialLink[] = [
   {
     platform: "Email",
-    url: "mailto:bhaveshsuthar08835@gmail.com",
+    url: "https://mail.google.com/",
     label: "bhaveshsuthar08835@gmail.com"
   },
   {

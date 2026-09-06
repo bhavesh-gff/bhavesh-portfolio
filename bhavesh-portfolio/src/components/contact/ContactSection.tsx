@@ -32,8 +32,8 @@ export default function ContactSection({ onCursorChange }: ContactSectionProps) 
               <a
                 key={social.platform}
                 href={social.url}
-                target={isEmail ? "_self" : "_blank"}
-                rel={isEmail ? "" : "noopener noreferrer"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-3.5 rounded-xl bg-[#0A0D13] hover:bg-[#111621] border border-white/10 hover:border-[#8B5CF6]/50 text-white font-mono text-xs font-semibold flex items-center gap-2.5 transition-all shadow-xl"
                 onMouseEnter={() => onCursorChange(social.platform.toUpperCase())}
                 onMouseLeave={() => onCursorChange("")}
