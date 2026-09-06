@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, Github, Linkedin } from "lucide-react";
+import { Download, GithubIcon, LinkedinIcon } from "lucide-react";
 import { profileData } from "@/data/profile";
 
 interface RecruiterViewSectionProps {
   onCursorChange: (text: string) => void;
 }
 
-export default function RecruiterViewSection({ onCursorChange }: RecruiterViewSectionProps) {
+export default function RecruiterViewSection({ onCursorChange }: Readonly<RecruiterViewSectionProps>) {
   return (
     <section className="py-24 px-4 flex justify-center border-t border-white/5 bg-[#0A0D13]">
       <div className="w-full max-w-7xl">
@@ -45,7 +45,7 @@ export default function RecruiterViewSection({ onCursorChange }: RecruiterViewSe
             <div className="sm:col-span-2">
               <span className="text-[11px] font-mono text-[#64748B] block mb-1">CORE SKILLS</span>
               <div className="flex flex-wrap gap-2">
-                {["Python", "SQL", "Pandas", "NumPy", "Data Visualisation", "Power BI"].map((s) => (
+                  {["Python", "SQL", "Pandas", "NumPy", "Matplotlib", "Data Visualisation"].map((s) => (
                   <span key={s} className="text-xs font-mono bg-[#8B5CF6]/10 text-[#8B5CF6] px-3 py-1 rounded border border-[#8B5CF6]/30">
                     {s}
                   </span>
@@ -88,7 +88,7 @@ export default function RecruiterViewSection({ onCursorChange }: RecruiterViewSe
               onMouseEnter={() => onCursorChange("GITHUB")}
               onMouseLeave={() => onCursorChange("")}
             >
-              <Github size={14} />
+              <GithubIcon size={14} />
               <span>GITHUB PROFILE</span>
             </a>
             <a
@@ -99,7 +99,7 @@ export default function RecruiterViewSection({ onCursorChange }: RecruiterViewSe
               onMouseEnter={() => onCursorChange("LINKEDIN")}
               onMouseLeave={() => onCursorChange("")}
             >
-              <Linkedin size={14} />
+              <LinkedinIcon size={14} />
               <span>LINKEDIN PROFILE</span>
             </a>
           </div>

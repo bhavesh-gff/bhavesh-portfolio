@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Database, Filter, Search, BarChart2, CheckCircle2, ArrowRight } from "lucide-react";
 
 interface WorkflowStep {
-  step: string;
   title: string;
   description: string;
   techniques: string[];
@@ -14,62 +13,56 @@ interface WorkflowStep {
   icon: any;
 }
 
-export default function DataWorkflowSection({ onCursorChange }: { onCursorChange: (text: string) => void }) {
+export default function DataWorkflowSection({ onCursorChange }: Readonly<{ onCursorChange: (text: string) => void }>) {
   const [activeStep, setActiveStep] = useState(0);
 
   const workflowSteps: WorkflowStep[] = [
     {
-      step: "01",
       title: "ASK",
-      description: "Define the core commercial problem and outline precise analytical questions.",
+      description: "Define the analytical question and the business decision the analysis needs to support.",
       techniques: ["Business Question Framing", "Metric Definition", "Scope Alignment"],
-      tools: ["Jupyter", "Documentation", "Requirement Specs"],
-      relatedProject: "Sales Data Analysis",
+      tools: ["Project Context", "Business Metrics"],
+      relatedProject: "Customer Churn Analysis; Ecommerce Sales & Conversion Analysis; Sales Data Analysis",
       icon: Search
     },
     {
-      step: "02",
       title: "COLLECT",
-      description: "Gather raw data from CSV logs, relational databases, or transactional exports.",
-      techniques: ["SQL Queries", "CSV Ingestion", "Database Extraction"],
-      tools: ["Python", "SQL", "PostgreSQL"],
-      relatedProject: "Smart Inventory ERP",
+      description: "Obtain the datasets and query the records needed to answer the defined question.",
+      techniques: ["SQL Data Extraction", "Dataset Retrieval", "CSV Ingestion"],
+      tools: ["SQL", "Google BigQuery", "Python"],
+      relatedProject: "Ecommerce Sales & Conversion Analysis; Sales Data Analysis",
       icon: Database
     },
     {
-      step: "03",
       title: "CLEAN",
-      description: "Prepare reliable data by resolving missing values, duplicates, and type mismatches.",
-      techniques: ["Null Imputation", "Duplicate Removal", "Type Casting", "Outlier Check"],
-      tools: ["Pandas", "NumPy", "Python"],
-      relatedProject: "Sales Data Analysis",
+      description: "Prepare reliable analysis data by checking fields, types, and values before exploration.",
+      techniques: ["Data Quality Checks", "Data Type Validation", "Data Transformation"],
+      tools: ["Python", "Pandas", "SQL"],
+      relatedProject: "Customer Churn Analysis; Sales Data Analysis",
       icon: Filter
     },
     {
-      step: "04",
       title: "EXPLORE",
-      description: "Uncover patterns, correlations, and distribution characteristics through EDA.",
-      techniques: ["Descriptive Stats", "Correlation Matrix", "Grouping & Aggregations"],
-      tools: ["Pandas", "NumPy", "Statistics"],
-      relatedProject: "Decision-Making Tool",
+      description: "Compare segments, trends, products, revenue, and conversion behavior to find meaningful patterns.",
+      techniques: ["Exploratory Data Analysis", "Customer Segmentation", "Churn Analysis", "Conversion Analysis", "Revenue Analysis", "Trend Analysis"],
+      tools: ["Python", "Pandas", "SQL", "Google BigQuery"],
+      relatedProject: "Customer Churn Analysis; Ecommerce Sales & Conversion Analysis; Sales Data Analysis",
       icon: BarChart2
     },
     {
-      step: "05",
       title: "VISUALISE",
-      description: "Translate complex numerical outputs into intuitive visual charts and reports.",
-      techniques: ["Time-Series Plots", "Comparative Bars", "Dashboard Layout"],
-      tools: ["Matplotlib", "Power BI", "Streamlit"],
+      description: "Translate analytical findings into clear visual comparisons that make patterns easier to interpret.",
+      techniques: ["Trend Visualization", "Comparative Analysis", "Insight Communication"],
+      tools: ["Python", "Pandas", "Matplotlib"],
       relatedProject: "Sales Data Analysis",
       icon: CheckCircle2
     },
     {
-      step: "06",
       title: "DECIDE",
-      description: "Synthesize findings into concrete, actionable recommendations for decision-makers.",
-      techniques: ["Insight Synthesis", "Risk Assessment", "Strategic Reporting"],
-      tools: ["Executive Summaries", "Decision Matrices"],
-      relatedProject: "Decision-Making Tool",
+      description: "Synthesize evidence into recommendations for retention, conversion improvement, and business action.",
+      techniques: ["Business Recommendations", "Insight Synthesis", "Risk Identification", "Decision Support"],
+      tools: ["Analytical Findings", "Business Context"],
+      relatedProject: "Customer Churn Analysis; Ecommerce Sales & Conversion Analysis; Sales Data Analysis",
       icon: ArrowRight
     }
   ];
@@ -92,7 +85,7 @@ export default function DataWorkflowSection({ onCursorChange }: { onCursorChange
             const isSelected = activeStep === index;
             return (
               <motion.div
-                key={item.step}
+                key={item.title}
                 onClick={() => setActiveStep(index)}
                 className={`cursor-pointer rounded-xl p-5 border transition-all flex flex-col justify-between ${
                   isSelected 
@@ -105,7 +98,6 @@ export default function DataWorkflowSection({ onCursorChange }: { onCursorChange
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="font-mono text-xs text-[#8B5CF6]">{item.step}</span>
                     <Icon size={18} className={isSelected ? "text-[#8B5CF6]" : "text-[#64748B]"} />
                   </div>
                   <h3 className="font-mono font-bold text-white text-base mb-2">{item.title}</h3>
@@ -132,9 +124,6 @@ export default function DataWorkflowSection({ onCursorChange }: { onCursorChange
           >
             <div className="flex-1 flex flex-col gap-4">
               <div className="flex items-center gap-3">
-                <span className="font-mono text-xs bg-[#8B5CF6]/10 text-[#8B5CF6] px-2.5 py-1 rounded border border-[#8B5CF6]/30">
-                  STEP {workflowSteps[activeStep].step}
-                </span>
                 <h3 className="text-xl font-bold text-white font-mono">{workflowSteps[activeStep].title}</h3>
               </div>
               <p className="text-[#94A3B8] text-base leading-relaxed">

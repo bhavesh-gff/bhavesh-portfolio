@@ -2,23 +2,22 @@
 
 import { motion } from "framer-motion";
 import { profileData } from "@/data/profile";
-import { User, GraduationCap, Target, Compass } from "lucide-react";
+import { GraduationCap, Target, Compass } from "lucide-react";
 
 interface ProfileSectionProps {
   onCursorChange: (text: string) => void;
 }
 
-export default function ProfileSection({ onCursorChange }: ProfileSectionProps) {
+export default function ProfileSection({ onCursorChange }: Readonly<ProfileSectionProps>) {
   return (
     <section id="profile" className="py-24 px-4 flex justify-center border-t border-white/5">
       <div className="w-full max-w-7xl">
         <div className="flex items-center gap-3 mb-10">
-          <span className="font-mono text-xs text-[#8B5CF6]">02</span>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-mono">PROFILE</h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Bio & Photo Placeholder */}
+          {/* Left Column: Bio and profile photo */}
           <motion.div 
             className="lg:col-span-7 bg-[#0A0D13] border border-white/10 rounded-2xl p-8 flex flex-col gap-6 shadow-xl"
             initial={{ opacity: 0, y: 20 }}
@@ -27,13 +26,12 @@ export default function ProfileSection({ onCursorChange }: ProfileSectionProps) 
             transition={{ duration: 0.6 }}
           >
             <div className="flex items-center gap-4">
-              {/* Photo Placeholder */}
               <div 
-                className="w-16 h-16 rounded-xl bg-[#0D1118] border border-white/10 flex items-center justify-center text-[#8B5CF6]"
+                className="w-16 h-16 rounded-xl bg-[#0D1118] border border-white/10 overflow-hidden"
                 onMouseEnter={() => onCursorChange("BS")}
                 onMouseLeave={() => onCursorChange("")}
               >
-                <User size={28} />
+                <img src="/profile-photo.jpeg" alt="Bhavesh Suthar" className="w-full h-full object-cover" />
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white">{profileData.name}</h3>

@@ -9,7 +9,7 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ onCursorChange }: HeroSectionProps) {
-  const skillsList = ["Python", "SQL", "Pandas", "NumPy", "Power BI"];
+  const skillsList = ["Python", "SQL", "Pandas", "NumPy", "Matplotlib"];
 
   return (
     <section id="lab" className="min-h-screen pt-32 pb-16 px-4 flex items-center justify-center relative">
@@ -40,7 +40,7 @@ export default function HeroSection({ onCursorChange }: HeroSectionProps) {
 
           {/* Supporting Copy */}
           <p className="text-[#94A3B8] text-base sm:text-lg max-w-2xl leading-relaxed">
-            {profileData.tagline} I work with Python, SQL, Pandas, NumPy, data visualisation and business-orientated analysis.
+            {profileData.tagline} I work with Python, SQL, Pandas, NumPy, and data visualisation to turn analysis into useful business insight.
           </p>
 
           {/* CTA Buttons */}

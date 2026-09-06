@@ -4,6 +4,7 @@ export interface Credential {
   organization: string;
   year: string;
   verificationLink?: string;
+  description?: string;
 }
 
 export const certificationsData: Credential[] = [
@@ -20,9 +21,10 @@ export const certificationsData: Credential[] = [
     year: "2025"
   },
   {
-    id: "sql-database-fundamentals",
-    name: "SQL & Relational Database Management",
-    organization: "Technical Training Program",
-    year: "2024"
+    id: "lenovo-leap-nextgen-scholar",
+    name: "Lenovo LEAP NextGen Scholar Program",
+    organization: "Lenovo and BharatCares",
+    year: "",
+    description: "60+ hours of learning in data analytics."
   }
 ];

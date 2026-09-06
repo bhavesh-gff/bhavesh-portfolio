@@ -16,7 +16,6 @@ export default function SkillsSection({ onCursorChange }: SkillsSectionProps) {
     <section id="toolkit" className="py-24 px-4 flex justify-center border-t border-white/5 bg-[#0A0D13]">
       <div className="w-full max-w-7xl">
         <div className="flex items-center gap-3 mb-4">
-          <span className="font-mono text-xs text-[#8B5CF6]">04</span>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-mono">SKILLS & TOOLKIT</h2>
         </div>
         <p className="text-[#94A3B8] text-sm mb-12 max-w-xl">

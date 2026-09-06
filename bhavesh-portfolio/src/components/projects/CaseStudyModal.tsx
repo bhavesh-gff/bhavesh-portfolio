@@ -24,7 +24,6 @@ export default function CaseStudyModal({ project, onClose, onCursorChange }: Cas
         {/* Modal Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#0D1118] sticky top-0 z-10">
           <div className="flex items-center gap-3">
-            <span className="font-mono text-xs text-[#8B5CF6]">{project.number}</span>
             <h3 className="text-lg font-bold text-white font-mono">{project.name}{" // CASE STUDY"}</h3>
           </div>
           <button

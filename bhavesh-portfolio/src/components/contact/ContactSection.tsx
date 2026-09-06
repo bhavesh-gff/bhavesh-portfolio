@@ -12,11 +12,10 @@ export default function ContactSection({ onCursorChange }: ContactSectionProps) 
     <section id="connect" className="py-24 px-4 flex justify-center border-t border-white/5">
       <div className="w-full max-w-7xl text-center flex flex-col items-center">
         <div className="flex items-center gap-3 mb-4">
-          <span className="font-mono text-xs text-[#8B5CF6]">06</span>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-mono">LET&apos;S CONNECT.</h2>
         </div>
         <p className="text-[#94A3B8] text-base max-w-xl mb-12">
-          &quot;Open to internships, entry-level opportunities, data projects and meaningful collaborations.&quot;
+          Open to internships, entry-level opportunities, data projects and meaningful collaborations.
         </p>
 
         {/* Action Buttons Grid */}
@@ -53,11 +52,6 @@ export default function ContactSection({ onCursorChange }: ContactSectionProps) 
           </a>
         </div>
 
-        {/* Footer Metadata */}
-        <div className="mt-20 pt-8 border-t border-white/10 w-full flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#64748B] gap-4">
-          <span>© {new Date().getFullYear()} BHAVESH SUTHAR. ALL RIGHTS RESERVED.</span>
-          <span>DATA ANALYST → ASPIRING DATA SCIENTIST</span>
-        </div>
       </div>
     </section>
   );

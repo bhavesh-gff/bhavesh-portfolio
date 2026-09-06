@@ -11,29 +11,61 @@ export interface CaseStudy {
 
 export interface Project {
   id: string;
-  number: string;
   name: string;
   shortDescription: string;
   technologies: string[];
   focus: string[];
-  githubUrl: string;
+  githubUrl?: string;
   liveDemoUrl?: string;
   caseStudy: CaseStudy;
 }
 
 export const projectsData: Project[] = [
   {
+    id: "customer-churn-analysis",
+    name: "Customer Churn Analysis",
+    shortDescription: "Analysis of customer churn patterns across contract type, payment method, internet service, and customer segments to support retention decisions.",
+    technologies: ["SQL", "Data Analysis"],
+    focus: ["Churn rate analysis", "Customer segmentation", "Risk identification", "Business recommendations"],
+    caseStudy: {
+      problem: "Customer churn needs to be understood across customer and service attributes so retention priorities can be identified.",
+      objective: "Explore churn patterns and translate them into practical retention recommendations.",
+      dataset: "Customer churn dataset.",
+      dataPreparation: ["Prepared customer and service fields for comparison.", "Checked values used in churn-rate analysis."],
+      analysis: ["Compared churn by contract type, payment method, and internet service.", "Reviewed customer segments and churn risk patterns."],
+      visualization: ["Summarized churn patterns with comparison-focused visual analysis."],
+      insights: ["The analysis highlights where churn is concentrated across customer and service segments."],
+      result: "A focused churn analysis that supports retention strategy and prioritization."
+    }
+  },
+  {
+    id: "ecommerce-sales-conversion-analysis",
+    name: "Ecommerce Sales & Conversion Analysis",
+    shortDescription: "BigQuery and SQL analysis of ecommerce sessions, revenue, product performance, traffic channels, and session-to-transaction conversion.",
+    technologies: ["SQL", "Google BigQuery"],
+    focus: ["Revenue analysis", "Product performance", "Traffic-channel conversion", "Cart abandonment"],
+    caseStudy: {
+      problem: "Ecommerce session data needs to be connected to revenue and transaction outcomes to understand conversion performance.",
+      objective: "Analyze sessions, products, traffic channels, and transactions to identify conversion and revenue patterns.",
+      dataset: "Ecommerce session and transaction data analyzed in Google BigQuery.",
+      dataPreparation: ["Queried ecommerce session and transaction data for analysis.", "Prepared session-level measures for conversion comparisons."],
+      analysis: ["Analyzed revenue and product performance.", "Compared traffic-channel conversion and session-to-transaction behavior.", "Reviewed cart abandonment patterns."],
+      visualization: ["Organized conversion and revenue findings into clear analytical summaries."],
+      insights: ["The analysis connects traffic, sessions, transactions, and revenue to support ecommerce optimization."],
+      result: "A SQL-based ecommerce analysis that supports conversion and revenue decisions."
+    }
+  },
+  {
     id: "sales-data-analysis",
-    number: "01",
-    name: "SALES DATA ANALYSIS",
-    shortDescription: "Comprehensive exploratory data analysis on transactional retail datasets to extract revenue trends, product performance, and regional insights.",
+    name: "Sales Data Analysis",
+    shortDescription: "Python and Pandas analysis of car sales data to identify sales trends, model performance, and practical business insights.",
     technologies: ["Python", "Pandas", "NumPy", "Matplotlib"],
     focus: [
       "Data cleaning",
       "Exploratory Data Analysis",
-      "Trend analysis",
-      "Product analysis",
-      "Regional analysis",
+      "Sales trends",
+      "Model performance",
+      "Data Visualization",
       "Business insights"
     ],
     githubUrl: "https://github.com/bhavesh-gff/sales-data-analysis-python",
@@ -62,84 +94,6 @@ export const projectsData: Project[] = [
         "High discount rates (>25%) yielded diminishing returns on customer lifetime value."
       ],
       result: "Delivered a structured analytical report pinpointing core revenue drivers, enabling smarter inventory allocation strategies for future seasonal cycles."
-    }
-  },
-  {
-    id: "smart-inventory-erp",
-    number: "02",
-    name: "SMART INVENTORY ERP",
-    shortDescription: "Database-driven inventory management system focusing on stock velocity, expiry tracking, and operational analytics reporting.",
-    technologies: ["Python", "SQL", "Pandas", "Streamlit"],
-    focus: [
-      "Inventory data",
-      "Stock management",
-      "Expiry management",
-      "Business operations",
-      "Database-driven information",
-      "Reporting/analytics potential"
-    ],
-    githubUrl: "https://github.com/bhavesh-gff/smart-inventory-erp",
-    caseStudy: {
-      problem: "Manual stock tracking led to stockouts of fast-moving items and unexpected write-offs due to unmonitored item expiry dates.",
-      objective: "To build a robust data-backed inventory tracking backend and analytical reporting dashboard to optimize stock levels and minimize waste.",
-      dataset: "Relational schema containing suppliers, warehouse inventories, batch expiry timelines, and historical requisition logs.",
-      dataPreparation: [
-        "Normalized relational database schemas to ensure atomicity and eliminate data redundancy.",
-        "Implemented SQL triggers and automated validation rules for inbound stock shipments.",
-        "Structured pandas data pipelines to compute daily stock turnover ratios."
-      ],
-      analysis: [
-        "Calculated Economic Order Quantity (EOQ) metrics across core inventory categories.",
-        "Analyzed lead-time variances from different suppliers to flag supply chain bottlenecks.",
-        "Evaluated inventory aging distributions to identify stagnant capital tied up in slow stock."
-      ],
-      visualization: [
-        "Designed interactive Streamlit analytical tabs showing stock status breakdown by category.",
-        "Built expiry alert indicators highlighting items approaching critical threshold windows.",
-        "Plotted inventory turnover frequency histograms."
-      ],
-      insights: [
-        "Three primary SKUs accounted for 65% of warehouse holding costs due to over-ordering.",
-        "Supplier lead times fluctuated by up to 14 days during peak months, requiring safety stock buffers."
-      ],
-      result: "Created a centralized database-driven inventory control prototype that improves visibility and reduces waste exposure."
-    }
-  },
-  {
-    id: "decision-making-tool",
-    number: "03",
-    name: "DECISION-MAKING TOOL",
-    shortDescription: "Analytical framework and calculation tool designed to synthesize multi-criteria business parameters into clear, prioritized decision matrices.",
-    technologies: ["Python", "Pandas", "NumPy"],
-    focus: [
-      "Data-driven decision support",
-      "Business logic",
-      "Database",
-      "Decision-orientated analysis"
-    ],
-    githubUrl: "https://github.com/bhavesh-gff/decision-making-tool",
-    caseStudy: {
-      problem: "Stakeholders often struggled to weigh conflicting operational variables (cost vs. speed vs. risk) when prioritizing project proposals.",
-      objective: "To develop a weighted multi-criteria decision analysis (MCDA) tool that translates qualitative business criteria into quantitative scorecards.",
-      dataset: "Parametric evaluation matrices containing project cost projections, implementation timelines, risk scores, and expected ROI estimates.",
-      dataPreparation: [
-        "Standardized disparate metrics (monetary values, risk scales 1-5, percentages) using min-max feature scaling.",
-        "Structured weight-assignment configuration dictionaries to allow adjustable decision priorities."
-      ],
-      analysis: [
-        "Executed weighted scoring algorithms to rank project proposals objectively.",
-        "Performed sensitivity analysis by altering criteria weights to test decision stability.",
-        "Computed risk-adjusted return ratios for comparative evaluation."
-      ],
-      visualization: [
-        "Generated radar charts contrasting project scores across multiple decision dimensions.",
-        "Plotted sensitivity curves showing ranking changes under varying stakeholder priorities."
-      ],
-      insights: [
-        "Projects with moderate upfront costs frequently outperformed high-capital alternatives when risk metrics were factored in.",
-        "Weight adjustments revealed that timeline sensitivity heavily dictated optimal project selection."
-      ],
-      result: "Provided a repeatable, transparent, data-backed framework for evaluating complex trade-offs during strategic planning sessions."
     }
   }
 ];

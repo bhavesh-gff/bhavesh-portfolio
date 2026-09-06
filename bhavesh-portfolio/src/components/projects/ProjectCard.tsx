@@ -24,8 +24,7 @@ export default function ProjectCard({ project, onCursorChange }: ProjectCardProp
       >
         <div>
           {/* Top Metadata */}
-          <div className="flex items-center justify-between mb-6">
-            <span className="font-mono text-xs text-[#8B5CF6] font-bold">{project.number}</span>
+          <div className="flex items-center justify-end mb-6">
             <div className="flex items-center gap-2">
               {project.technologies.slice(0, 3).map((tech) => (
                 <span key={tech} className="text-[10px] font-mono bg-[#0D1118] border border-white/5 px-2 py-0.5 rounded text-[#94A3B8]">
@@ -63,18 +62,20 @@ export default function ProjectCard({ project, onCursorChange }: ProjectCardProp
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </button>
 
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-mono text-[#94A3B8] hover:text-white flex items-center gap-1.5"
-            onMouseEnter={() => onCursorChange("GITHUB")}
-            onMouseLeave={() => onCursorChange("")}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Github size={14} />
-            <span>CODE</span>
-          </a>
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-mono text-[#94A3B8] hover:text-white flex items-center gap-1.5"
+              onMouseEnter={() => onCursorChange("GITHUB")}
+              onMouseLeave={() => onCursorChange("")}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Github size={14} />
+              <span>CODE</span>
+            </a>
+          )}
         </div>
       </motion.div>
 
