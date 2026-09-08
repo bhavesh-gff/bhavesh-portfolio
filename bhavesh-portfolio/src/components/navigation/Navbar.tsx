@@ -2,61 +2,59 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Command } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 interface NavbarProps {
   onCursorChange: (text: string) => void;
 }
 
-export default function Navbar({ onCursorChange }: NavbarProps) {
+export default function Navbar({ onCursorChange }: Readonly<NavbarProps>) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 30);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { id: "lab", label: "LAB", href: "#lab" },
-    { id: "profile", label: "PROFILE", href: "#profile" },
-    { id: "work", label: "WORK", href: "#work" },
-    { id: "toolkit", label: "TOOLKIT", href: "#toolkit" },
-    { id: "proof", label: "PROOF", href: "#proof" },
-    { id: "connect", label: "CONNECT", href: "#connect" },
+    { id: "home", label: "Home", href: "#home" },
+    { id: "about", label: "About", href: "#about" },
+    { id: "projects", label: "Projects", href: "#projects" },
+    { id: "skills", label: "Skills", href: "#skills" },
+    { id: "credentials", label: "Credentials", href: "#credentials" },
+    { id: "contact", label: "Contact", href: "#contact" },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 flex justify-center px-4 pt-4">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4">
       <motion.nav
-        className={`w-full max-w-7xl flex items-center justify-between transition-all duration-300 rounded-xl border border-white/10 bg-[#0A0D13]/85 backdrop-blur-md px-6 ${
-          scrolled ? "py-3 shadow-lg shadow-black/40" : "py-4"
+        className={`w-full max-w-7xl flex items-center justify-between rounded-xl border border-white/10 bg-[#0b0f16]/80 backdrop-blur-md px-4 sm:px-6 ${
+          scrolled ? "py-3 shadow-lg shadow-black/20" : "py-3.5"
         }`}
-        initial={{ y: -20, opacity: 0 }}
+        initial={{ y: -18, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.45 }}
       >
-        {/* Brand */}
-        <a 
-          href="#lab"
-          className="font-mono text-sm tracking-widest text-white font-bold flex items-center gap-2 group"
-          onMouseEnter={() => onCursorChange("LAB")}
+        <a
+          href="#home"
+          className="flex items-center gap-2 text-sm font-semibold tracking-[0.18em] text-white"
+          onMouseEnter={() => onCursorChange("HOME")}
           onMouseLeave={() => onCursorChange("")}
         >
-          <span className="w-2 h-2 rounded-full bg-[#8B5CF6] animate-ping" />
-          <span>BHAVESH.SUTHAR</span>
+          <span className="h-2 w-2 rounded-full bg-[#8b5cf6]" />
+          <span className="text-[10px] sm:text-xs">BHAVESH SUTHAR</span>
         </a>
 
-        {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-6">
+        <div className="hidden items-center gap-7 lg:flex">
           {navItems.map((item) => (
             <a
               key={item.id}
               href={item.href}
-              className="text-xs font-mono text-[#94A3B8] hover:text-white transition-colors tracking-wider"
+              className="text-[11px] font-medium tracking-[0.16em] text-[#b4c0cf] hover:text-white"
               onMouseEnter={() => onCursorChange("GO")}
               onMouseLeave={() => onCursorChange("")}
             >
@@ -65,48 +63,54 @@ export default function Navbar({ onCursorChange }: NavbarProps) {
           ))}
         </div>
 
-        {/* Right action / Cmd K & Mobile toggle */}
-        <div className="flex items-center gap-3">
-          <button 
-            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#111621] border border-white/10 text-[11px] font-mono text-[#94A3B8] hover:text-white hover:border-[#8B5CF6]/50 transition-colors"
-            onMouseEnter={() => onCursorChange("CMD")}
+        <div className="flex items-center gap-2 sm:gap-3">
+          <a
+            href="/bhavesh-suthar-resume.txt"
+            download="Bhavesh-Suthar-Resume.txt"
+            className="hidden rounded-full border border-[#8b5cf6]/40 bg-[#8b5cf6]/10 px-3 py-1.5 text-[10px] font-semibold tracking-[0.14em] text-[#e9ddff] hover:border-[#8b5cf6] hover:bg-[#8b5cf6]/20 sm:inline-flex"
+            onMouseEnter={() => onCursorChange("RESUME")}
             onMouseLeave={() => onCursorChange("")}
-            onClick={() => alert("Data Lab Workspace active. Use navigation links to explore sections.")}
           >
-            <Command size={12} />
-            <span>K</span>
-          </button>
+            RESUME
+          </a>
 
           <button
-            className="lg:hidden p-2 text-[#94A3B8] hover:text-white"
+            className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-2 text-[#dbe4f0] lg:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Menu"
+            aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </motion.nav>
 
-      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            className="absolute top-20 left-4 right-4 bg-[#0D1118] border border-white/10 rounded-xl p-6 flex flex-col gap-4 lg:hidden shadow-2xl z-50 backdrop-blur-xl"
-            initial={{ opacity: 0, y: -10 }}
+            className="absolute left-4 right-4 top-20 z-50 rounded-2xl border border-white/10 bg-[#0d1320]/95 p-5 shadow-2xl backdrop-blur-xl lg:hidden"
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
+            exit={{ opacity: 0, y: -12 }}
           >
             {navItems.map((item) => (
               <a
                 key={item.id}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-mono text-[#94A3B8] hover:text-white py-2 border-b border-white/5 flex items-center justify-between"
+                className="flex items-center justify-between border-b border-white/5 py-3 text-sm font-medium text-[#dfeaf6] last:border-b-0"
               >
                 <span>{item.label}</span>
-                <span className="text-[#8B5CF6]">→</span>
+                <span className="text-[#8b5cf6]">→</span>
               </a>
             ))}
+            <a
+              href="/bhavesh-suthar-resume.txt"
+              download="Bhavesh-Suthar-Resume.txt"
+              onClick={() => setMobileMenuOpen(false)}
+              className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-[#8b5cf6] px-4 py-3 text-xs font-semibold tracking-[0.18em] text-white"
+            >
+              RESUME
+            </a>
           </motion.div>
         )}
       </AnimatePresence>

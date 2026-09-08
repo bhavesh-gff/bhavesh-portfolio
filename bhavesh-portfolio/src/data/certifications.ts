@@ -26,5 +26,12 @@ export const certificationsData: Credential[] = [
     organization: "Lenovo and BharatCares",
     year: "",
     description: "60+ hours of learning in data analytics."
+  },
+  {
+    id: "deloitte-data-analytics",
+    name: "Deloitte Data Analytics Virtual Experience Program",
+    organization: "Deloitte",
+    year: "2026",
+    description: "Applied Tableau, data visualization, exploratory data analysis, and dashboard design to transform business datasets into actionable insights."
   }
 ];

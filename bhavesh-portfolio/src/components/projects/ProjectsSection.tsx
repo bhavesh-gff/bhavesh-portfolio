@@ -7,18 +7,18 @@ interface ProjectsSectionProps {
   onCursorChange: (text: string) => void;
 }
 
-export default function ProjectsSection({ onCursorChange }: ProjectsSectionProps) {
+export default function ProjectsSection({ onCursorChange }: Readonly<ProjectsSectionProps>) {
   return (
-    <section id="work" className="py-24 px-4 flex justify-center border-t border-white/5">
+    <section id="projects" className="flex justify-center px-4 py-20 sm:py-24">
       <div className="w-full max-w-7xl">
-        <div className="flex items-center gap-3 mb-4">
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-mono">FEATURED WORK</h2>
+        <div className="mb-8 flex items-end justify-between gap-4">
+          <div>
+            <div className="text-[10px] font-medium tracking-[0.22em] text-[#8b5cf6] uppercase">Featured Work</div>
+            <h2 className="mt-2 text-2xl font-semibold text-white sm:text-3xl">Projects</h2>
+          </div>
         </div>
-        <p className="text-[#94A3B8] text-sm mb-12 max-w-xl">
-          Analytical case studies and data systems built with Python, SQL, and robust business logic.
-        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           {projectsData.map((project) => (
             <ProjectCard
               key={project.id}

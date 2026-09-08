@@ -15,6 +15,7 @@ export interface Project {
   shortDescription: string;
   technologies: string[];
   focus: string[];
+  imageUrl?: string;
   githubUrl?: string;
   liveDemoUrl?: string;
   caseStudy: CaseStudy;
@@ -27,6 +28,7 @@ export const projectsData: Project[] = [
     shortDescription: "Analysis of customer churn patterns across contract type, payment method, internet service, and customer segments to support retention decisions.",
     technologies: ["SQL", "Data Analysis"],
     focus: ["Churn rate analysis", "Customer segmentation", "Risk identification", "Business recommendations"],
+    imageUrl: "/png.png",
     caseStudy: {
       problem: "Customer churn needs to be understood across customer and service attributes so retention priorities can be identified.",
       objective: "Explore churn patterns and translate them into practical retention recommendations.",
@@ -44,6 +46,7 @@ export const projectsData: Project[] = [
     shortDescription: "BigQuery and SQL analysis of ecommerce sessions, revenue, product performance, traffic channels, and session-to-transaction conversion.",
     technologies: ["SQL", "Google BigQuery"],
     focus: ["Revenue analysis", "Product performance", "Traffic-channel conversion", "Cart abandonment"],
+    imageUrl: "/WhatsApp Image 2026-09-04 at 6.26.55 PM.jpeg",
     caseStudy: {
       problem: "Ecommerce session data needs to be connected to revenue and transaction outcomes to understand conversion performance.",
       objective: "Analyze sessions, products, traffic channels, and transactions to identify conversion and revenue patterns.",
@@ -68,6 +71,7 @@ export const projectsData: Project[] = [
       "Data Visualization",
       "Business insights"
     ],
+    imageUrl: "/ChatGPT Image Sep 8, 2026, 07_07_11 PM.png",
     githubUrl: "https://github.com/bhavesh-gff/sales-data-analysis-python",
     caseStudy: {
       problem: "Car sales data needs to be explored to understand sales trends and differences in model performance.",

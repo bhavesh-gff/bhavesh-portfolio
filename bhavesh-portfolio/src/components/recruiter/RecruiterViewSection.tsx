@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, GithubIcon, LinkedinIcon } from "lucide-react";
+import { Download, GitBranch, BriefcaseBusiness } from "lucide-react";
 import { profileData } from "@/data/profile";
 
 interface RecruiterViewSectionProps {
@@ -9,98 +9,93 @@ interface RecruiterViewSectionProps {
 }
 
 export default function RecruiterViewSection({ onCursorChange }: Readonly<RecruiterViewSectionProps>) {
-  return (
-    <section className="py-24 px-4 flex justify-center border-t border-white/5 bg-[#0A0D13]">
-      <div className="w-full max-w-7xl">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="font-mono text-xs text-[#8B5CF6]">SUMMARY</span>
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-mono">RECRUITER VIEW</h2>
-        </div>
-        <p className="text-[#94A3B8] text-sm mb-12 max-w-xl">
-          Quick-scan candidate overview designed for recruiters and technical interviewers in under 20 seconds.
-        </p>
+  const coreSkills = ["Python", "SQL", "Pandas", "NumPy", "Matplotlib"];
 
-        <motion.div 
-          className="bg-[#07090D] border border-[#8B5CF6]/40 rounded-2xl p-8 sm:p-12 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-          initial={{ opacity: 0, y: 20 }}
+  return (
+    <section className="flex justify-center px-4 pb-6 pt-2 sm:pb-10">
+      <div className="w-full max-w-7xl">
+        <motion.div
+          className="rounded-3xl border border-[#8b5cf6]/25 bg-[#0b0f16]/80 p-5 shadow-[0_20px_60px_rgba(15,23,42,0.45)] sm:p-8"
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
-          {/* Left Column: Key Attributes */}
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="mb-6 flex items-center justify-between gap-4 border-b border-white/10 pb-4">
             <div>
-              <span className="text-[11px] font-mono text-[#64748B] block mb-1">TARGET ROLE</span>
-              <span className="text-sm font-mono text-white font-bold block bg-[#0D1118] p-3 rounded-lg border border-white/10">
-                Data Analyst → Aspiring Data Scientist
-              </span>
+              <div className="text-[10px] font-medium tracking-[0.22em] text-[#8b5cf6] uppercase">Recruiter Snapshot</div>
+              <h2 className="mt-2 text-xl font-semibold text-white sm:text-2xl">Data analyst with a strong analytical foundation.</h2>
+            </div>
+            <a
+              href="/bhavesh-suthar-resume.txt"
+              download="Bhavesh-Suthar-Resume.txt"
+              className="hidden items-center gap-2 rounded-full border border-white/10 bg-[#0d1320] px-4 py-2 text-[10px] font-semibold tracking-[0.16em] text-white sm:inline-flex"
+            >
+              <Download size={14} />
+              RESUME
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-5">
+            <div className="rounded-2xl border border-white/10 bg-[#0d1320] p-4">
+              <div className="text-[10px] font-medium tracking-[0.18em] text-[#8ea0b6] uppercase">Target Role</div>
+              <div className="mt-3 text-sm font-medium text-white">Data Analyst → Aspiring Data Scientist</div>
             </div>
 
-            <div>
-              <span className="text-[11px] font-mono text-[#64748B] block mb-1">EDUCATION</span>
-              <span className="text-sm font-mono text-white font-bold block bg-[#0D1118] p-3 rounded-lg border border-white/10">
-                {profileData.education}
-              </span>
+            <div className="rounded-2xl border border-white/10 bg-[#0d1320] p-4">
+              <div className="text-[10px] font-medium tracking-[0.18em] text-[#8ea0b6] uppercase">Education</div>
+              <div className="mt-3 text-sm font-medium text-white">{profileData.education}</div>
             </div>
 
-            <div className="sm:col-span-2">
-              <span className="text-[11px] font-mono text-[#64748B] block mb-1">CORE SKILLS</span>
-              <div className="flex flex-wrap gap-2">
-                  {["Python", "SQL", "Pandas", "NumPy", "Matplotlib", "Data Visualisation"].map((s) => (
-                  <span key={s} className="text-xs font-mono bg-[#8B5CF6]/10 text-[#8B5CF6] px-3 py-1 rounded border border-[#8B5CF6]/30">
-                    {s}
+            <div className="rounded-2xl border border-white/10 bg-[#0d1320] p-4 md:col-span-2 xl:col-span-2">
+              <div className="text-[10px] font-medium tracking-[0.18em] text-[#8ea0b6] uppercase">Core Skills</div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {coreSkills.map((skill) => (
+                  <span key={skill} className="rounded-full border border-[#8b5cf6]/30 bg-[#8b5cf6]/10 px-2.5 py-1 text-[10px] font-medium tracking-[0.12em] text-[#e9ddff] uppercase">
+                    {skill}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div>
-              <span className="text-[11px] font-mono text-[#64748B] block mb-1">BEST PROJECT</span>
-              <span className="text-xs font-mono text-white font-bold block bg-[#0D1118] p-3 rounded-lg border border-white/10">
-                Sales Data Analysis
-              </span>
-            </div>
-
-            <div>
-              <span className="text-[11px] font-mono text-[#64748B] block mb-1">CURRENT FOCUS</span>
-              <span className="text-xs font-mono text-white font-bold block bg-[#0D1118] p-3 rounded-lg border border-white/10">
-                Statistics & Machine Learning
-              </span>
+            <div className="rounded-2xl border border-white/10 bg-[#0d1320] p-4">
+              <div className="text-[10px] font-medium tracking-[0.18em] text-[#8ea0b6] uppercase">Best Project</div>
+              <div className="mt-3 text-sm font-medium text-white">Sales Data Analysis</div>
             </div>
           </div>
 
-          {/* Right Column: Quick Actions */}
-          <div className="lg:col-span-4 flex flex-col gap-4 bg-[#0D1118] p-6 rounded-xl border border-white/10">
-            <span className="text-xs font-mono text-[#8B5CF6] font-bold mb-2">VERIFICATION & CONTACT</span>
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#connect"
-              className="w-full py-3 rounded-xl bg-[#8B5CF6] hover:bg-[#7c3aed] text-white font-mono text-xs font-semibold flex items-center justify-center gap-2 transition-all shadow-lg shadow-[#8B5CF6]/20"
-              onMouseEnter={() => onCursorChange("OPEN")}
+              href="/bhavesh-suthar-resume.txt"
+              download="Bhavesh-Suthar-Resume.txt"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#8b5cf6] px-4 py-3 text-[10px] font-semibold tracking-[0.16em] text-white hover:bg-[#7c3aed]"
+              onMouseEnter={() => onCursorChange("RESUME")}
               onMouseLeave={() => onCursorChange("")}
             >
               <Download size={14} />
-              <span>DOWNLOAD RESUME</span>
+              RESUME
             </a>
             <a
               href="https://github.com/bhavesh-gff"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3 rounded-xl bg-[#07090D] hover:bg-[#111621] border border-white/10 text-white font-mono text-xs font-semibold flex items-center justify-center gap-2 transition-all"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-[#0d1320] px-4 py-3 text-[10px] font-semibold tracking-[0.16em] text-white"
               onMouseEnter={() => onCursorChange("GITHUB")}
               onMouseLeave={() => onCursorChange("")}
             >
-              <GithubIcon size={14} />
-              <span>GITHUB PROFILE</span>
+              <GitBranch size={14} />
+              GITHUB
             </a>
             <a
               href="https://www.linkedin.com/in/bhavesh-suthar-00761b315/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3 rounded-xl bg-[#07090D] hover:bg-[#111621] border border-white/10 text-white font-mono text-xs font-semibold flex items-center justify-center gap-2 transition-all"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-[#0d1320] px-4 py-3 text-[10px] font-semibold tracking-[0.16em] text-white"
               onMouseEnter={() => onCursorChange("LINKEDIN")}
               onMouseLeave={() => onCursorChange("")}
             >
-              <LinkedinIcon size={14} />
-              <span>LINKEDIN PROFILE</span>
+              <BriefcaseBusiness size={14} />
+              LINKEDIN
             </a>
           </div>
         </motion.div>

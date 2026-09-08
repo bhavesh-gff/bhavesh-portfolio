@@ -9,39 +9,38 @@ interface SkillsSectionProps {
   onCursorChange: (text: string) => void;
 }
 
-export default function SkillsSection({ onCursorChange }: SkillsSectionProps) {
+export default function SkillsSection({ onCursorChange }: Readonly<SkillsSectionProps>) {
   const [selectedSkill, setSelectedSkill] = useState<SkillItem>(skillsData[0].skills[0]);
 
   return (
-    <section id="toolkit" className="py-24 px-4 flex justify-center border-t border-white/5 bg-[#0A0D13]">
+    <section id="skills" className="flex justify-center bg-[#0a0f16] px-4 py-20 sm:py-24">
       <div className="w-full max-w-7xl">
-        <div className="flex items-center gap-3 mb-4">
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-mono">SKILLS & TOOLKIT</h2>
+        <div className="mb-8">
+          <div className="text-[10px] font-medium tracking-[0.22em] text-[#8b5cf6] uppercase">Skills & Toolkit</div>
+          <h2 className="mt-2 text-2xl font-semibold text-white sm:text-3xl">Analytical capabilities</h2>
         </div>
-        <p className="text-[#94A3B8] text-sm mb-12 max-w-xl">
-          Evidence-based technical capabilities prioritized for data analysis and data science roles. Click any skill to inspect evidence and application.
-        </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Side: Grouped Categories */}
-          <div className="lg:col-span-7 flex flex-col gap-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+          <div className="flex flex-col gap-5 lg:col-span-7">
             {skillsData.map((cat) => (
-              <div key={cat.category} className="bg-[#07090D] border border-white/10 rounded-2xl p-6">
-                <h3 className="text-xs font-mono text-[#8B5CF6] uppercase tracking-wider mb-4 flex items-center gap-2">
+              <div key={cat.category} className="rounded-3xl border border-white/10 bg-[#0b0f16] p-6">
+                <h3 className="mb-4 flex items-center gap-2 text-[10px] font-medium tracking-[0.2em] text-[#8b5cf6] uppercase">
                   <Cpu size={14} />
-                  <span>{cat.category}</span>
+                  {cat.category}
                 </h3>
+
                 <div className="flex flex-wrap gap-2.5">
                   {cat.skills.map((skill) => {
                     const isSelected = selectedSkill.name === skill.name;
                     return (
                       <button
                         key={skill.name}
+                        type="button"
                         onClick={() => setSelectedSkill(skill)}
-                        className={`px-4 py-2 rounded-xl text-xs font-mono transition-all border ${
+                        className={`rounded-full border px-3.5 py-2 text-[10px] font-semibold tracking-[0.16em] uppercase transition-all ${
                           isSelected
-                            ? "bg-[#8B5CF6] text-white border-[#8B5CF6] shadow-md shadow-[#8B5CF6]/20 font-bold"
-                            : "bg-[#0D1118] text-[#94A3B8] border-white/10 hover:border-white/30 hover:text-white"
+                            ? "border-[#8b5cf6] bg-[#8b5cf6] text-white"
+                            : "border-white/10 bg-[#0d1320] text-[#dfeaf6] hover:border-white/30"
                         }`}
                         onMouseEnter={() => onCursorChange("INSPECT")}
                         onMouseLeave={() => onCursorChange("")}
@@ -55,45 +54,40 @@ export default function SkillsSection({ onCursorChange }: SkillsSectionProps) {
             ))}
           </div>
 
-          {/* Right Side: Skill Evidence Inspector Box */}
-          <div className="lg:col-span-5 sticky top-28">
+          <div className="lg:col-span-5 lg:sticky lg:top-24 lg:self-start">
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedSkill.name}
-                className="bg-[#0D1118] border border-[#8B5CF6]/40 rounded-2xl p-8 shadow-2xl flex flex-col gap-6"
-                initial={{ opacity: 0, y: 10 }}
+                className="rounded-3xl border border-[#8b5cf6]/25 bg-[#0d1320] p-6 shadow-[0_20px_60px_rgba(15,23,42,0.4)]"
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.25 }}
               >
-                <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                  <h3 className="text-2xl font-bold text-white font-mono">{selectedSkill.name}</h3>
-                  <span className="text-[10px] font-mono text-[#8B5CF6] bg-[#8B5CF6]/10 px-2.5 py-1 rounded border border-[#8B5CF6]/30">
-                    VERIFIED SKILL
-                  </span>
+                <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-4">
+                  <h3 className="text-2xl font-semibold text-white">{selectedSkill.name}</h3>
+                  <span className="rounded-full border border-[#8b5cf6]/30 bg-[#8b5cf6]/10 px-2 py-1 text-[9px] font-medium tracking-[0.14em] text-[#e9ddff] uppercase">Verified</span>
                 </div>
 
-                <p className="text-[#94A3B8] text-sm leading-relaxed">
-                  {selectedSkill.description}
-                </p>
+                <p className="mt-4 text-sm leading-relaxed text-[#b4c0cf]">{selectedSkill.description}</p>
 
-                <div>
-                  <span className="text-xs font-mono text-[#64748B] block mb-2">KEY CAPABILITIES:</span>
+                <div className="mt-6">
+                  <div className="mb-3 text-[10px] font-medium tracking-[0.18em] text-[#8ea0b6] uppercase">What I use it for</div>
                   <div className="flex flex-wrap gap-2">
                     {selectedSkill.keyPoints.map((kp) => (
-                      <span key={kp} className="text-xs font-mono bg-[#07090D] border border-white/10 px-2.5 py-1 rounded text-white flex items-center gap-1.5">
-                        <CheckCircle size={12} className="text-[#8B5CF6]" />
-                        <span>{kp}</span>
+                      <span key={kp} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#0b0f16] px-2.5 py-1 text-[10px] font-medium tracking-[0.12em] text-[#dfeaf6] uppercase">
+                        <CheckCircle size={12} className="text-[#8b5cf6]" />
+                        {kp}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-white/10">
-                  <span className="text-xs font-mono text-[#64748B] block mb-2">APPLIED IN PROJECTS:</span>
+                <div className="mt-6 border-t border-white/10 pt-4">
+                  <div className="mb-3 text-[10px] font-medium tracking-[0.18em] text-[#8ea0b6] uppercase">Where I applied it</div>
                   <div className="flex flex-wrap gap-2">
                     {selectedSkill.usedIn.map((proj) => (
-                      <span key={proj} className="text-xs font-mono bg-[#8B5CF6]/10 text-white px-3 py-1 rounded border border-[#8B5CF6]/30">
+                      <span key={proj} className="rounded-full border border-[#8b5cf6]/20 bg-[#8b5cf6]/10 px-2.5 py-1 text-[10px] font-medium tracking-[0.12em] text-[#e9ddff] uppercase">
                         {proj}
                       </span>
                     ))}

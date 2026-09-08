@@ -8,85 +8,74 @@ interface HeroSectionProps {
   onCursorChange: (text: string) => void;
 }
 
-export default function HeroSection({ onCursorChange }: HeroSectionProps) {
+export default function HeroSection({ onCursorChange }: Readonly<HeroSectionProps>) {
   const skillsList = ["Python", "SQL", "Pandas", "NumPy", "Matplotlib"];
 
   return (
-    <section id="lab" className="min-h-screen pt-32 pb-16 px-4 flex items-center justify-center relative">
-      <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        {/* Left Side: Editorial Content */}
-        <motion.div 
-          className="lg:col-span-7 flex flex-col gap-6"
+    <section id="home" className="relative flex min-h-screen items-center justify-center px-4 pb-16 pt-32 sm:pt-36">
+      <div className="w-full max-w-7xl grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
+        <motion.div
+          className="lg:col-span-7"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
         >
-          {/* Small label */}
-          <div className="inline-flex items-center gap-2 self-start bg-[#0D1118] border border-white/10 px-3 py-1.5 rounded-md">
-            <span className="w-2 h-2 rounded-full bg-[#8B5CF6]" />
-            <span className="font-mono text-xs tracking-wider text-[#94A3B8]">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#0d1320]/80 px-3 py-1.5">
+            <span className="h-2 w-2 rounded-full bg-[#8b5cf6]" />
+            <span className="text-[10px] font-medium tracking-[0.18em] text-[#b4c0cf] uppercase">
               {profileData.label}
             </span>
           </div>
 
-          {/* Main Heading */}
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-none">
-            I TURN DATA <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5CF6] via-[#6366F1] to-[#06B6D4]">
-              INTO DECISIONS.
-            </span>
+          <h1 className="max-w-2xl text-4xl font-semibold leading-[0.92] tracking-[-0.06em] text-white sm:text-5xl lg:text-7xl">
+            <span className="block">I TURN DATA</span>
+            <span className="mt-2 block text-[#e5e7eb]">INTO DECISIONS.</span>
           </h1>
 
-          {/* Supporting Copy */}
-          <p className="text-[#94A3B8] text-base sm:text-lg max-w-2xl leading-relaxed">
-            {profileData.tagline} I work with Python, SQL, Pandas, NumPy, and data visualisation to turn analysis into useful business insight.
+          <p className="mt-6 max-w-xl text-base text-[#b4c0cf] sm:text-lg">
+            {profileData.tagline} I turn raw data into clear business insight using Python, SQL, and modern analytical workflows.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center gap-4 pt-2">
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
-              href="#work"
-              className="px-6 py-3 rounded-xl bg-[#8B5CF6] hover:bg-[#7c3aed] text-white font-mono text-xs tracking-wider font-semibold shadow-lg shadow-[#8B5CF6]/20 transition-all flex items-center gap-2"
-              onMouseEnter={() => onCursorChange("OPEN")}
+              href="#projects"
+              className="inline-flex items-center justify-center rounded-full bg-[#8b5cf6] px-5 py-3 text-[11px] font-semibold tracking-[0.18em] text-white shadow-lg shadow-[#8b5cf6]/20 hover:bg-[#7c3aed]"
+              onMouseEnter={() => onCursorChange("PROJECTS")}
               onMouseLeave={() => onCursorChange("")}
             >
-              EXPLORE MY WORK →
+              VIEW MY PROJECTS
             </a>
             <a
-              href="#connect"
-              className="px-6 py-3 rounded-xl bg-[#0D1118] hover:bg-[#111621] border border-white/10 text-white font-mono text-xs tracking-wider font-semibold transition-all flex items-center gap-2"
-              onMouseEnter={() => onCursorChange("OPEN")}
+              href="/bhavesh-suthar-resume.txt"
+              download="Bhavesh-Suthar-Resume.txt"
+              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-[#0b0f16] px-5 py-3 text-[11px] font-semibold tracking-[0.18em] text-white hover:border-[#8b5cf6]/50 hover:bg-[#0f172a]"
+              onMouseEnter={() => onCursorChange("RESUME")}
               onMouseLeave={() => onCursorChange("")}
             >
-              DOWNLOAD RESUME ↓
+              DOWNLOAD RESUME
             </a>
           </div>
 
-          {/* Clean Skill Tags */}
-          <div className="flex flex-wrap items-center gap-2 pt-4">
-            <span className="text-xs font-mono text-[#64748B] mr-2">CORE STACK:</span>
-            {skillsList.map((skill) => (
-              <span
-                key={skill}
-                className="px-2.5 py-1 rounded bg-[#0A0D13] border border-white/10 text-[11px] font-mono text-[#94A3B8]"
-              >
-                {skill}
+          <div className="mt-8 flex flex-wrap items-center gap-2 text-[11px] text-[#8ea0b6]">
+            <span className="font-medium tracking-[0.16em] text-[#64748b]">CORE STACK</span>
+            <span className="hidden h-1 w-1 rounded-full bg-[#8ea0b6] sm:inline-block" />
+            {skillsList.map((skill, index) => (
+              <span key={skill} className="inline-flex items-center gap-2">
+                <span>{skill}</span>
+                {index < skillsList.length - 1 && <span className="text-[#64748b]">•</span>}
               </span>
             ))}
           </div>
         </motion.div>
 
-        {/* Right Side: Original Interactive Data Lab Visualisation */}
         <motion.div
-          className="lg:col-span-5 w-full"
-          initial={{ opacity: 0, scale: 0.95 }}
+          className="lg:col-span-5"
+          initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.75, delay: 0.15 }}
         >
           <DataLabVisual onCursorChange={onCursorChange} />
         </motion.div>
-
       </div>
     </section>
   );
