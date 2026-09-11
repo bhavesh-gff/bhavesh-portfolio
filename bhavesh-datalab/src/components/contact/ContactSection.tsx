@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { Mail, BriefcaseBusiness, Code2, Download } from "lucide-react";
 import { socialLinks } from "@/data/social";
 
@@ -9,8 +8,6 @@ interface ContactSectionProps {
 }
 
 export default function ContactSection({ onCursorChange }: Readonly<ContactSectionProps>) {
-  const [emailCopied, setEmailCopied] = useState(false);
-
   return (
     <section id="contact" className="flex justify-center bg-[#242323] px-4 py-20 sm:py-24">
       <div className="w-full max-w-5xl p-6 text-center sm:p-10">
@@ -27,20 +24,15 @@ export default function ContactSection({ onCursorChange }: Readonly<ContactSecti
             return (
               <a
                 key={social.platform}
-                href={isEmail ? "mailto:bhaveshsuthar08835@gmail.com" : social.url}
-                target={isEmail ? undefined : "_blank"}
-                rel={isEmail ? undefined : "noopener noreferrer"}
+                href={isEmail ? "https://mail.google.com/mail/?view=cm&fs=1&to=bhaveshsuthar08835@gmail.com" : social.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#8A857D] bg-transparent px-4 py-3 text-[10px] font-semibold tracking-[0.16em] text-[#FFFCF2] hover:border-[#F15A24] hover:bg-[#3F3D3B]"
                 onMouseEnter={() => onCursorChange(social.platform.toUpperCase())}
                 onMouseLeave={() => onCursorChange("")}
-                onClick={isEmail ? () => {
-                  void navigator.clipboard?.writeText("bhaveshsuthar08835@gmail.com");
-                  setEmailCopied(true);
-                  window.setTimeout(() => setEmailCopied(false), 2000);
-                } : undefined}
               >
                 <Icon size={16} className="text-[#F15A24]" />
-                <span>{isEmail && emailCopied ? "COPIED EMAIL" : social.platform.toUpperCase()}</span>
+                <span>{isEmail ? "MAIL" : social.platform.toUpperCase()}</span>
               </a>
             );
           })}
