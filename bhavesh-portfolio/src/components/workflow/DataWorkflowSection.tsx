@@ -26,11 +26,11 @@ export default function DataWorkflowSection({ onCursorChange }: Readonly<{ onCur
   ];
 
   return (
-    <section className="flex justify-center bg-[#0a0f16] px-4 py-20 sm:py-24">
+    <section className="flex justify-center bg-[#ECE8DE] px-4 py-20 sm:py-24">
       <div className="w-full max-w-7xl">
         <div className="mb-6">
-          <div className="text-[10px] font-medium tracking-[0.22em] text-[#8b5cf6] uppercase">Workflow</div>
-          <h2 className="mt-2 text-2xl font-semibold text-white sm:text-3xl">My Data Workflow</h2>
+          <div className="text-[10px] font-medium tracking-[0.22em] text-[#F15A24] uppercase">Workflow</div>
+          <h2 className="mt-2 text-2xl font-semibold text-[#242323] sm:text-3xl">My Data Workflow</h2>
         </div>
 
         <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-6">
@@ -45,8 +45,8 @@ export default function DataWorkflowSection({ onCursorChange }: Readonly<{ onCur
                 onClick={() => setActiveStep(index)}
                 className={`flex min-h-[190px] cursor-pointer flex-col justify-between rounded-2xl border p-4 text-left transition-all ${
                   isSelected
-                    ? "border-[#8b5cf6]/60 bg-[#0d1320] shadow-lg shadow-[#8b5cf6]/10"
-                    : "border-white/10 bg-[#0b0f16] hover:border-white/20"
+                    ? "border-[#F15A24] bg-[#FFFCF2] shadow-sm"
+                    : "border-[#D8D3C8] bg-[#F4F1E9] hover:border-[#F15A24]"
                 }`}
                 onMouseEnter={() => onCursorChange("STEP")}
                 onMouseLeave={() => onCursorChange("")}
@@ -54,15 +54,15 @@ export default function DataWorkflowSection({ onCursorChange }: Readonly<{ onCur
               >
                 <div>
                   <div className="mb-3 flex items-center justify-between">
-                    <Icon size={18} className={isSelected ? "text-[#8b5cf6]" : "text-[#7f8ba1]"} />
+                    <Icon size={18} className={isSelected ? "text-[#F15A24]" : "text-[#8A857D]"} />
                   </div>
-                  <h3 className="text-base font-semibold text-white">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#b4c0cf]">{item.description}</p>
+                  <h3 className="text-base font-semibold text-[#242323]">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[#625F59]">{item.description}</p>
                 </div>
 
-                <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-3">
-                  <span className="text-[10px] font-medium tracking-[0.14em] text-[#8ea0b6] uppercase">Details</span>
-                  <span className="text-[#8b5cf6]">→</span>
+                <div className="mt-4 flex items-center justify-between border-t border-[#D8D3C8] pt-3">
+                  <span className="text-[10px] font-medium tracking-[0.14em] text-[#8A857D] uppercase">Details</span>
+                  <span className="text-[#F15A24]">→</span>
                 </div>
               </motion.button>
             );
@@ -72,22 +72,22 @@ export default function DataWorkflowSection({ onCursorChange }: Readonly<{ onCur
         <AnimatePresence mode="wait">
           <motion.div
             key={activeStep}
-            className="grid gap-6 rounded-3xl border border-[#8b5cf6]/20 bg-[#0d1320] p-5 sm:p-8 lg:grid-cols-[1.6fr_0.9fr]"
+            className="grid gap-6 rounded-2xl border border-[#D8D3C8] bg-[#FFFCF2] p-5 shadow-sm sm:p-8 lg:grid-cols-[1.6fr_0.9fr]"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.25 }}
           >
             <div>
-              <div className="text-[10px] font-medium tracking-[0.2em] text-[#8b5cf6] uppercase">Stage</div>
-              <h3 className="mt-2 text-2xl font-semibold text-white">{workflowSteps[activeStep].title}</h3>
-              <p className="mt-3 max-w-xl text-base leading-relaxed text-[#b4c0cf]">{workflowSteps[activeStep].description}</p>
+              <div className="text-[10px] font-medium tracking-[0.2em] text-[#F15A24] uppercase">Stage</div>
+              <h3 className="mt-2 text-2xl font-semibold text-[#242323]">{workflowSteps[activeStep].title}</h3>
+              <p className="mt-3 max-w-xl text-base leading-relaxed text-[#625F59]">{workflowSteps[activeStep].description}</p>
 
               <div className="mt-6">
-                <div className="mb-3 text-[10px] font-medium tracking-[0.18em] text-[#8ea0b6] uppercase">Techniques</div>
+                <div className="mb-3 text-[10px] font-medium tracking-[0.18em] text-[#8A857D] uppercase">Techniques</div>
                 <div className="flex flex-wrap gap-2">
                   {workflowSteps[activeStep].techniques.map((tech) => (
-                    <span key={tech} className="rounded-full border border-white/10 bg-[#0b0f16] px-2.5 py-1 text-[10px] font-medium tracking-[0.12em] text-[#dfeaf6] uppercase">
+                    <span key={tech} className="rounded-md border border-[#D8D3C8] bg-[#F4F1E9] px-2.5 py-1 text-[10px] font-medium tracking-[0.12em] text-[#625F59] uppercase">
                       {tech}
                     </span>
                   ))}
@@ -95,19 +95,19 @@ export default function DataWorkflowSection({ onCursorChange }: Readonly<{ onCur
               </div>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-[#0b0f16] p-4">
-              <div className="mb-4 text-[10px] font-medium tracking-[0.18em] text-[#8ea0b6] uppercase">Tools Used</div>
+            <div className="rounded-xl border border-[#D8D3C8] bg-[#F4F1E9] p-4">
+              <div className="mb-4 text-[10px] font-medium tracking-[0.18em] text-[#8A857D] uppercase">Tools Used</div>
               <div className="flex flex-wrap gap-2">
                 {workflowSteps[activeStep].tools.map((tool) => (
-                  <span key={tool} className="rounded-full border border-[#8b5cf6]/30 bg-[#8b5cf6]/10 px-2.5 py-1 text-[10px] font-medium tracking-[0.12em] text-[#e9ddff] uppercase">
+                  <span key={tool} className="rounded-md border border-[#D8D3C8] bg-[#FCE2D6] px-2.5 py-1 text-[10px] font-medium tracking-[0.12em] text-[#3F3D3B] uppercase">
                     {tool}
                   </span>
                 ))}
               </div>
 
-              <div className="mt-6 border-t border-white/10 pt-4">
-                <div className="text-[10px] font-medium tracking-[0.18em] text-[#8ea0b6] uppercase">Related Project</div>
-                <p className="mt-2 text-sm font-medium text-white">{workflowSteps[activeStep].relatedProject}</p>
+              <div className="mt-6 border-t border-[#D8D3C8] pt-4">
+                <div className="text-[10px] font-medium tracking-[0.18em] text-[#8A857D] uppercase">Related Project</div>
+                <p className="mt-2 text-sm font-medium text-[#242323]">{workflowSteps[activeStep].relatedProject}</p>
               </div>
             </div>
           </motion.div>

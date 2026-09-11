@@ -20,26 +20,26 @@ export default function HeroSection({ onCursorChange }: Readonly<HeroSectionProp
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#0d1320]/80 px-3 py-1.5">
-            <span className="h-2 w-2 rounded-full bg-[#8b5cf6]" />
-            <span className="text-[10px] font-medium tracking-[0.18em] text-[#b4c0cf] uppercase">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-lg border border-[#3F3D3B] bg-[#F4F1E9] px-3 py-1.5">
+            <span className="h-2 w-2 rounded-full bg-[#F15A24]" />
+            <span className="text-[10px] font-medium tracking-[0.18em] text-[#3F3D3B] uppercase">
               {profileData.label}
             </span>
           </div>
 
-          <h1 className="max-w-2xl text-4xl font-semibold leading-[0.92] tracking-[-0.06em] text-white sm:text-5xl lg:text-7xl">
+          <h1 className="max-w-2xl text-4xl font-bold leading-[0.92] tracking-[-0.06em] text-[#242323] sm:text-5xl lg:text-7xl">
             <span className="block">I TURN DATA</span>
-            <span className="mt-2 block text-[#e5e7eb]">INTO DECISIONS.</span>
+            <span className="mt-2 block text-[#F15A24]">INTO DECISIONS.</span>
           </h1>
 
-          <p className="mt-6 max-w-xl text-base text-[#b4c0cf] sm:text-lg">
+          <p className="mt-6 max-w-xl text-base text-[#625F59] sm:text-lg">
             {profileData.tagline} I turn raw data into clear business insight using Python, SQL, and modern analytical workflows.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href="#projects"
-              className="inline-flex items-center justify-center rounded-full bg-[#8b5cf6] px-5 py-3 text-[11px] font-semibold tracking-[0.18em] text-white shadow-lg shadow-[#8b5cf6]/20 hover:bg-[#7c3aed]"
+              className="inline-flex items-center justify-center rounded-lg bg-[#242323] px-5 py-3 text-[11px] font-semibold tracking-[0.18em] text-[#FFFCF2] hover:bg-[#F15A24]"
               onMouseEnter={() => onCursorChange("PROJECTS")}
               onMouseLeave={() => onCursorChange("")}
             >
@@ -48,7 +48,7 @@ export default function HeroSection({ onCursorChange }: Readonly<HeroSectionProp
             <a
               href="/bhavesh-suthar-resume.txt"
               download="Bhavesh-Suthar-Resume.txt"
-              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-[#0b0f16] px-5 py-3 text-[11px] font-semibold tracking-[0.18em] text-white hover:border-[#8b5cf6]/50 hover:bg-[#0f172a]"
+              className="inline-flex items-center justify-center rounded-lg border border-[#242323] bg-transparent px-5 py-3 text-[11px] font-semibold tracking-[0.18em] text-[#242323] hover:bg-[#242323] hover:text-[#FFFCF2]"
               onMouseEnter={() => onCursorChange("RESUME")}
               onMouseLeave={() => onCursorChange("")}
             >
@@ -56,13 +56,13 @@ export default function HeroSection({ onCursorChange }: Readonly<HeroSectionProp
             </a>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-2 text-[11px] text-[#8ea0b6]">
-            <span className="font-medium tracking-[0.16em] text-[#64748b]">CORE STACK</span>
-            <span className="hidden h-1 w-1 rounded-full bg-[#8ea0b6] sm:inline-block" />
+          <div className="mt-8 flex flex-wrap items-center gap-2 text-[11px] text-[#8A857D]">
+            <span className="font-medium tracking-[0.16em] text-[#3F3D3B]">CORE STACK</span>
+            <span className="hidden h-1 w-1 rounded-full bg-[#F15A24] sm:inline-block" />
             {skillsList.map((skill, index) => (
               <span key={skill} className="inline-flex items-center gap-2">
                 <span>{skill}</span>
-                {index < skillsList.length - 1 && <span className="text-[#64748b]">•</span>}
+                {index < skillsList.length - 1 && <span className="text-[#F15A24]">•</span>}
               </span>
             ))}
           </div>

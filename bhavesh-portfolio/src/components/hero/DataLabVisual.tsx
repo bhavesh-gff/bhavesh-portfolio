@@ -20,19 +20,19 @@ export default function DataLabVisual({ onCursorChange }: DataLabVisualProps) {
 
   return (
     <div 
-      className="relative w-full h-[380px] bg-[#0A0D13] border border-white/10 rounded-2xl p-6 flex flex-col justify-between overflow-hidden shadow-2xl"
+      className="relative flex h-[380px] w-full flex-col justify-between overflow-hidden rounded-2xl border border-[#D8D3C8] bg-[#F4F1E9] p-6 shadow-[0_18px_45px_rgba(36,35,35,0.08)]"
       onMouseEnter={() => onCursorChange("ANALYSE")}
       onMouseLeave={() => onCursorChange("")}
     >
       {/* Top Header of Lab Window */}
-      <div className="flex items-center justify-between border-b border-white/10 pb-3">
+      <div className="flex items-center justify-between border-b border-[#D8D3C8] pb-3">
         <div className="flex items-center gap-2">
           <div className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
           <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
           <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-          <span className="ml-2 text-[11px] font-mono text-[#64748B]">LAB_ENVIRONMENT // PIPELINE_ACTIVE</span>
+          <span className="ml-2 text-[11px] font-mono text-[#8A857D]">LAB_ENVIRONMENT // PIPELINE_ACTIVE</span>
         </div>
-        <div className="text-[10px] font-mono text-[#8B5CF6] bg-[#8B5CF6]/10 px-2 py-0.5 rounded border border-[#8B5CF6]/30">
+        <div className="rounded border border-[#D8D3C8] bg-[#ECE8DE] px-2 py-0.5 text-[10px] font-mono text-[#3F3D3B]">
           DATA → DECISION
         </div>
       </div>
@@ -44,7 +44,7 @@ export default function DataLabVisual({ onCursorChange }: DataLabVisualProps) {
           <path
             d="M 50 100 Q 100 40 150 120 T 260 70 T 370 140 T 450 90"
             fill="none"
-            stroke="rgba(139, 92, 246, 0.3)"
+            stroke="#D8D3C8"
             strokeWidth="2"
             strokeDasharray="4 4"
           />
@@ -53,7 +53,7 @@ export default function DataLabVisual({ onCursorChange }: DataLabVisualProps) {
           <motion.path
             d="M 50 100 Q 100 40 150 120 T 260 70 T 370 140 T 450 90"
             fill="none"
-            stroke="#06B6D4"
+            stroke="#F15A24"
             strokeWidth="2.5"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
@@ -72,10 +72,10 @@ export default function DataLabVisual({ onCursorChange }: DataLabVisualProps) {
               onHoverStart={() => setActiveNode(node.id)}
               onHoverEnd={() => setActiveNode(null)}
             >
-              <div className="w-4 h-4 -ml-2 -mt-2 rounded-full bg-[#8B5CF6] border-2 border-[#0A0D13] shadow-lg shadow-[#8B5CF6]/50 flex items-center justify-center">
-                <div className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
+              <div className="-ml-2 -mt-2 flex h-4 w-4 items-center justify-center rounded-full border-2 border-[#F4F1E9] bg-[#F15A24]">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#FFFCF2] animate-ping" />
               </div>
-              <div className="absolute top-5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#0D1118] border border-white/10 px-2 py-0.5 rounded text-[10px] font-mono text-white">
+              <div className="absolute left-1/2 top-5 -translate-x-1/2 whitespace-nowrap rounded border border-[#D8D3C8] bg-[#242323] px-2 py-0.5 text-[10px] font-mono text-[#FFFCF2]">
                 {node.label}
               </div>
             </motion.div>
@@ -85,20 +85,20 @@ export default function DataLabVisual({ onCursorChange }: DataLabVisualProps) {
         {/* Active Node Detail Tooltip Box */}
         {activeNode && (
           <motion.div 
-            className="absolute bottom-2 left-2 right-2 bg-[#0D1118]/95 border border-[#8B5CF6]/40 p-2 rounded text-xs font-mono text-[#94A3B8] flex items-center justify-between backdrop-blur-md"
+            className="absolute bottom-2 left-2 right-2 flex items-center justify-between rounded border border-[#D8D3C8] bg-[#ECE8DE] p-2 text-xs font-mono text-[#625F59]"
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
           >
             <span>STATUS: {nodes.find(n => n.id === activeNode)?.detail}</span>
-            <span className="text-[#06B6D4]">NODE_ID: 0{activeNode}</span>
+            <span className="text-[#F15A24]">NODE_ID: 0{activeNode}</span>
           </motion.div>
         )}
       </div>
 
       {/* Bottom Footer of Lab Window */}
-      <div className="flex items-center justify-between pt-3 border-t border-white/10 text-[11px] font-mono text-[#64748B]">
+      <div className="flex items-center justify-between border-t border-[#D8D3C8] pt-3 text-[11px] font-mono text-[#8A857D]">
         <span>ENGINE: PYTHON / SQL / PANDAS</span>
-        <span className="text-emerald-400">● READY FOR DEPLOYMENT</span>
+        <span className="text-[#3F6B50]">● READY FOR DEPLOYMENT</span>
       </div>
     </div>
   );

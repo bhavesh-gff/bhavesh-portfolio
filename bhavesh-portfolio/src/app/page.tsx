@@ -17,7 +17,7 @@ export default function Home() {
   const [cursorText, setCursorText] = useState("");
 
   return (
-    <main id="home" className="min-h-screen bg-[#07090D] text-white relative selection:bg-[#8B5CF6] selection:text-white">
+    <main id="home" className="relative min-h-screen bg-[#FFFCF2] text-[#242323] selection:bg-[#F15A24] selection:text-[#FFFCF2]">
       <BackgroundEnvironment />
       <CustomCursor cursorText={cursorText} />
       <Navbar onCursorChange={setCursorText} />
@@ -29,6 +29,10 @@ export default function Home() {
       <SkillsSection onCursorChange={setCursorText} />
       <ProofSection onCursorChange={setCursorText} />
       <ContactSection onCursorChange={setCursorText} />
+      <footer className="flex flex-col items-center justify-between gap-2 bg-[#242323] px-4 py-6 text-center text-[10px] font-medium tracking-[0.16em] text-[#A7A29A] sm:flex-row sm:px-8 sm:text-left">
+        <span className="text-[#FFFCF2]">BHAVESH SUTHAR</span>
+        <span>DATA ANALYST <span className="text-[#F15A24]">→</span> ASPIRING DATA SCIENTIST</span>
+      </footer>
     </main>
   );
 }

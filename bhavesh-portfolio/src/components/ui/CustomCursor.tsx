@@ -31,7 +31,7 @@ export default function CustomCursor({ cursorText }: CustomCursorProps) {
     <>
       {/* Small dot follower */}
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 bg-[#8B5CF6] rounded-full pointer-events-none z-50 mix-blend-difference"
+        className="fixed top-0 left-0 w-3 h-3 bg-[#F15A24] rounded-full pointer-events-none z-50"
         animate={{
           x: mousePosition.x - 6,
           y: mousePosition.y - 6,
@@ -40,18 +40,18 @@ export default function CustomCursor({ cursorText }: CustomCursorProps) {
       />
       {/* Outer ring / context badge */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-50 flex items-center justify-center border border-[#8B5CF6]/40 rounded-full backdrop-blur-[1px]"
+        className="fixed top-0 left-0 pointer-events-none z-50 flex items-center justify-center border border-[#F15A24]/50 rounded-full"
         animate={{
           x: mousePosition.x - (cursorText ? 40 : 16),
           y: mousePosition.y - (cursorText ? 40 : 16),
           width: cursorText ? 80 : 32,
           height: cursorText ? 80 : 32,
-          backgroundColor: cursorText ? "rgba(139, 92, 246, 0.15)" : "transparent",
+          backgroundColor: cursorText ? "rgba(241, 90, 36, 0.12)" : "transparent",
         }}
         transition={{ type: "spring", stiffness: 400, damping: 28 }}
       >
         {cursorText && (
-          <span className="text-[10px] font-semibold tracking-wider text-white uppercase select-none">
+          <span className="text-[10px] font-semibold tracking-wider text-[#242323] uppercase select-none">
             {cursorText}
           </span>
         )}

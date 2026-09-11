@@ -3,20 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --bg-primary: #07090d;
-  --bg-secondary: #0b0f16;
-  --bg-elevated: #101827;
-  --bg-panel: #0d1320;
-  --surface-soft: rgba(15, 23, 42, 0.75);
-  --border-soft: rgba(148, 163, 184, 0.16);
-  --text-main: #f8fafc;
-  --text-muted: #b4c0cf;
-  --text-subtle: #8ea0b6;
-  --accent: #8b5cf6;
-  --accent-soft: rgba(139, 92, 246, 0.12);
-  --accent-strong: #a78bfa;
-  --cyan: #5eead4;
-  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.3);
+  --bg-primary: #fffcf2;
+  --bg-secondary: #f4f1e9;
+  --bg-elevated: #ece8de;
+  --bg-panel: #f4f1e9;
+  --surface-soft: #fffcf2;
+  --border-soft: #d8d3c8;
+  --text-main: #242323;
+  --text-muted: #625f59;
+  --text-subtle: #8a857d;
+  --accent: #f15a24;
+  --accent-soft: #fce2d6;
+  --accent-strong: #d94c1b;
+  --cyan: #3f3d3b;
+  --shadow-soft: 0 12px 30px rgba(36, 35, 35, 0.08);
 }
 
 html {
@@ -24,11 +24,9 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(circle at top, rgba(139, 92, 246, 0.12), transparent 28%),
-    linear-gradient(180deg, #07090d 0%, #0a0f17 100%);
+  background: #fffcf2;
   color: var(--text-main);
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Manrope", "Inter", sans-serif;
   overflow-x: hidden;
   line-height: 1.6;
   letter-spacing: -0.01em;
@@ -39,8 +37,8 @@ body {
 }
 
 ::selection {
-  background: rgba(139, 92, 246, 0.8);
-  color: #0b0f16;
+  background: #f15a24;
+  color: #242323;
 }
 
 img {
@@ -62,16 +60,16 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-  background: #07090d;
+  background: #f4f1e9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.3);
+  background: #d8d3c8;
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(139, 92, 246, 0.7);
+  background: #f15a24;
 }
 
 @media (prefers-reduced-motion: reduce) {

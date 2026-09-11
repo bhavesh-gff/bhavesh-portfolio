@@ -19,43 +19,43 @@ export default function ProjectCard({ project, onCursorChange }: Readonly<Projec
   return (
     <>
       <motion.article
-        className="group flex min-h-[520px] flex-col justify-between rounded-3xl border border-white/10 bg-[#0b0f16]/80 p-4 shadow-[0_18px_45px_rgba(15,23,42,0.3)] transition-all hover:border-[#8b5cf6]/40"
+        className="group flex min-h-[520px] flex-col justify-between rounded-2xl border border-[#D8D3C8] bg-[#F4F1E9] p-4 shadow-sm transition-all hover:-translate-y-1 hover:border-[#F15A24]"
         whileHover={{ y: -6 }}
         onMouseEnter={() => onCursorChange("VIEW")}
         onMouseLeave={() => onCursorChange("")}
       >
         <div>
           <div className="mb-4 flex items-center justify-between">
-            <span className="text-[10px] font-medium tracking-[0.2em] text-[#8ea0b6] uppercase">{projectNumber}</span>
+            <span className="text-[10px] font-medium tracking-[0.2em] text-[#F15A24] uppercase">{projectNumber}</span>
             <div className="flex flex-wrap justify-end gap-1.5">
               {project.technologies.slice(0, 3).map((tech) => (
-                <span key={tech} className="rounded-full border border-white/10 bg-[#0d1320] px-2 py-1 text-[9px] font-medium tracking-[0.14em] text-[#b4c0cf] uppercase">
+                <span key={tech} className="rounded-md border border-[#D8D3C8] bg-[#FFFCF2] px-2 py-1 text-[9px] font-medium tracking-[0.14em] text-[#625F59] uppercase">
                   {tech}
                 </span>
               ))}
             </div>
           </div>
 
-          <div className="mb-5 overflow-hidden rounded-2xl border border-white/10 bg-[#0d1320] p-3">
+          <div className="mb-5 overflow-hidden rounded-xl border border-[#D8D3C8] bg-[#ECE8DE] p-3">
             <div className="mb-3 flex items-center gap-1.5">
               <span className="h-2.5 w-2.5 rounded-full bg-[#f87171]" />
               <span className="h-2.5 w-2.5 rounded-full bg-[#fbbf24]" />
               <span className="h-2.5 w-2.5 rounded-full bg-[#4ade80]" />
-              <span className="ml-3 text-[9px] font-medium tracking-[0.18em] text-[#8ea0b6] uppercase">Dashboard Preview</span>
+              <span className="ml-3 text-[9px] font-medium tracking-[0.18em] text-[#8A857D] uppercase">Dashboard Preview</span>
             </div>
 
             {project.imageUrl ? (
               <img
                 src={project.imageUrl}
                 alt={`${project.name} dashboard preview`}
-                className="h-40 w-full rounded-xl border border-white/5 object-cover"
+                className="h-40 w-full rounded-lg border border-[#D8D3C8] object-cover"
               />
             ) : (
-              <div className="flex h-40 items-end gap-2 rounded-xl border border-white/5 bg-[#0b0f16] p-3">
+              <div className="flex h-40 items-end gap-2 rounded-lg border border-[#D8D3C8] bg-[#FFFCF2] p-3">
                 {visualBars.map((bar, index) => (
                   <div key={index} className="flex flex-1 flex-col items-center justify-end gap-2">
-                    <div className="w-full rounded-t-md bg-gradient-to-t from-[#8b5cf6] via-[#8b5cf6]/70 to-[#5eead4]/70" style={{ height: `${bar}%` }} />
-                    <span className="text-[7px] text-[#7f8ba1]">{index + 1}</span>
+                    <div className="w-full rounded-t-md bg-[#F15A24]" style={{ height: `${bar}%` }} />
+                    <span className="text-[7px] text-[#8A857D]">{index + 1}</span>
                   </div>
                 ))}
               </div>
@@ -63,40 +63,57 @@ export default function ProjectCard({ project, onCursorChange }: Readonly<Projec
 
             {!project.imageUrl && (
               <div className="mt-3 grid grid-cols-3 gap-2">
-                <div className="rounded-lg border border-white/5 bg-[#101827] p-2">
-                  <div className="mb-1 h-1.5 w-10 rounded-full bg-[#8b5cf6]/60" />
-                  <div className="h-1.5 w-6 rounded-full bg-white/10" />
+                <div className="rounded-lg border border-[#D8D3C8] bg-[#FFFCF2] p-2">
+                  <div className="mb-1 h-1.5 w-10 rounded-full bg-[#F15A24]" />
+                  <div className="h-1.5 w-6 rounded-full bg-[#D8D3C8]" />
                 </div>
-                <div className="rounded-lg border border-white/5 bg-[#101827] p-2">
-                  <div className="mb-1 h-1.5 w-12 rounded-full bg-[#5eead4]/60" />
-                  <div className="h-1.5 w-7 rounded-full bg-white/10" />
+                <div className="rounded-lg border border-[#D8D3C8] bg-[#FFFCF2] p-2">
+                  <div className="mb-1 h-1.5 w-12 rounded-full bg-[#3F6B50]" />
+                  <div className="h-1.5 w-7 rounded-full bg-[#D8D3C8]" />
                 </div>
-                <div className="rounded-lg border border-white/5 bg-[#101827] p-2">
-                  <div className="mb-1 h-1.5 w-9 rounded-full bg-[#c4b5fd]/60" />
-                  <div className="h-1.5 w-5 rounded-full bg-white/10" />
+                <div className="rounded-lg border border-[#D8D3C8] bg-[#FFFCF2] p-2">
+                  <div className="mb-1 h-1.5 w-9 rounded-full bg-[#3F3D3B]" />
+                  <div className="h-1.5 w-5 rounded-full bg-[#D8D3C8]" />
                 </div>
               </div>
             )}
           </div>
 
-          <h3 className="text-2xl font-semibold text-white">{project.name}</h3>
-          <p className="mt-3 text-sm leading-relaxed text-[#b4c0cf]">{project.shortDescription}</p>
+          <h3 className="text-2xl font-semibold text-[#242323]">{project.name}</h3>
+          <p className="mt-3 text-sm leading-relaxed text-[#625F59]">{project.shortDescription}</p>
+
+          {project.id === "customer-churn-analysis" && (
+            <div className="mt-5 grid grid-cols-2 gap-2 border-y border-[#D8D3C8] py-3">
+              {[
+                ["26.6%", "OVERALL CHURN"],
+                ["42.7%", "MONTH-TO-MONTH CONTRACT"],
+                ["2.8%", "TWO-YEAR CONTRACT"],
+                ["45.3%", "ELECTRONIC CHECK"],
+                ["47.7%", "0-12 MONTH TENURE"],
+              ].map(([value, label], index) => (
+                <div key={label} className={index === 0 || index === 3 ? "text-[#F15A24]" : "text-[#3F3D3B]"}>
+                  <div className="text-lg font-bold leading-none">{value}</div>
+                  <div className="mt-1 text-[8px] font-medium tracking-[0.12em] text-[#8A857D]">{label}</div>
+                </div>
+              ))}
+            </div>
+          )}
 
           <div className="mt-5 flex flex-wrap gap-2">
             {project.focus.slice(0, 4).map((focus) => (
-              <span key={focus} className="rounded-full border border-white/10 bg-[#0d1320] px-2 py-1 text-[9px] font-medium tracking-[0.14em] text-[#8ea0b6] uppercase">
+              <span key={focus} className="rounded-md border border-[#D8D3C8] bg-[#FFFCF2] px-2 py-1 text-[9px] font-medium tracking-[0.14em] text-[#8A857D] uppercase">
                 {focus}
               </span>
             ))}
           </div>
         </div>
 
-        <div className="mt-6 border-t border-white/10 pt-4">
+        <div className="mt-6 border-t border-[#D8D3C8] pt-4">
           <div className="flex items-center justify-between gap-3">
             <button
               type="button"
               onClick={() => setModalOpen(true)}
-              className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.16em] text-white hover:text-[#d9c7ff]"
+              className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.16em] text-[#242323] hover:text-[#F15A24]"
             >
               <span>VIEW CASE STUDY</span>
               <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
@@ -107,7 +124,7 @@ export default function ProjectCard({ project, onCursorChange }: Readonly<Projec
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.16em] text-[#b4c0cf] hover:text-white"
+                className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.16em] text-[#625F59] hover:text-[#F15A24]"
                 onMouseEnter={() => onCursorChange("GITHUB")}
                 onMouseLeave={() => onCursorChange("")}
                 onClick={(e) => e.stopPropagation()}

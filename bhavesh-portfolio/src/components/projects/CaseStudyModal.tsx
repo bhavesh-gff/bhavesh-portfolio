@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Project } from "@/data/projects";
-import { X, Github, CheckCircle2 } from "lucide-react";
+import { X, GithubIcon, CheckCircle2 } from "lucide-react";
 
 interface CaseStudyModalProps {
   project: Project;
@@ -10,25 +10,25 @@ interface CaseStudyModalProps {
   onCursorChange: (text: string) => void;
 }
 
-export default function CaseStudyModal({ project, onClose, onCursorChange }: CaseStudyModalProps) {
+export default function CaseStudyModal({ project, onClose, onCursorChange }: Readonly<CaseStudyModalProps>) {
   const cs = project.caseStudy;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-[#242323]/80 p-4 backdrop-blur-md">
       <motion.div 
-        className="relative w-full max-w-4xl bg-[#0A0D13] border border-white/15 rounded-2xl shadow-2xl overflow-hidden my-8 max-h-[90vh] flex flex-col"
+        className="relative my-8 flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-[#D8D3C8] bg-[#FFFCF2] shadow-xl"
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
       >
         {/* Modal Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#0D1118] sticky top-0 z-10">
+        <div className="sticky top-0 z-10 flex items-center justify-between border-b border-[#D8D3C8] bg-[#F4F1E9] px-6 py-4">
           <div className="flex items-center gap-3">
-            <h3 className="text-lg font-bold text-white font-mono">{project.name}{" // CASE STUDY"}</h3>
+            <h3 className="text-lg font-bold font-mono text-[#242323]">{project.name}{" // CASE STUDY"}</h3>
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-[#94A3B8] hover:text-white rounded-lg hover:bg-white/5"
+            className="rounded-lg p-2 text-[#8A857D] hover:bg-[#ECE8DE] hover:text-[#242323]"
             onMouseEnter={() => onCursorChange("CLOSE")}
             onMouseLeave={() => onCursorChange("")}
           >
@@ -40,21 +40,21 @@ export default function CaseStudyModal({ project, onClose, onCursorChange }: Cas
         <div className="p-6 sm:p-10 overflow-y-auto flex flex-col gap-8">
           
           {/* Overview Section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-[#0D1118] p-6 rounded-xl border border-white/10">
+          <div className="grid grid-cols-1 gap-6 rounded-xl border border-[#D8D3C8] bg-[#F4F1E9] p-6 md:grid-cols-2">
             <div>
-              <span className="text-[11px] font-mono text-[#8B5CF6] block mb-1">PROBLEM STATEMENT</span>
-              <p className="text-sm text-[#94A3B8] leading-relaxed">{cs.problem}</p>
+              <span className="text-[11px] font-mono text-[#F15A24] block mb-1">PROBLEM STATEMENT</span>
+              <p className="text-sm leading-relaxed text-[#625F59]">{cs.problem}</p>
             </div>
             <div>
-              <span className="text-[11px] font-mono text-[#06B6D4] block mb-1">ANALYTICAL OBJECTIVE</span>
-              <p className="text-sm text-[#94A3B8] leading-relaxed">{cs.objective}</p>
+              <span className="text-[11px] font-mono text-[#3F6B50] block mb-1">ANALYTICAL OBJECTIVE</span>
+              <p className="text-sm leading-relaxed text-[#625F59]">{cs.objective}</p>
             </div>
           </div>
 
           {/* Dataset Info */}
           <div>
             <h4 className="text-xs font-mono text-[#64748B] mb-2 uppercase tracking-wider">DATASET</h4>
-            <div className="bg-[#07090D] p-4 rounded-xl border border-white/10 text-sm text-white font-mono">
+            <div className="rounded-xl border border-[#D8D3C8] bg-[#ECE8DE] p-4 text-sm font-mono text-[#242323]">
               {cs.dataset}
             </div>
           </div>
@@ -64,7 +64,7 @@ export default function CaseStudyModal({ project, onClose, onCursorChange }: Cas
             <h4 className="text-xs font-mono text-[#64748B] mb-2 uppercase tracking-wider">DATA PREPARATION & CLEANING</h4>
             <div className="flex flex-col gap-2">
               {cs.dataPreparation.map((prep, i) => (
-                <div key={prep} className="flex items-start gap-3 bg-[#0D1118] p-3 rounded-lg border border-white/5 text-sm text-[#94A3B8]">
+                <div key={prep} className="flex items-start gap-3 rounded-lg border border-[#D8D3C8] bg-[#F4F1E9] p-3 text-sm text-[#625F59]">
                   <span>{prep}</span>
                 </div>
               ))}
@@ -77,8 +77,8 @@ export default function CaseStudyModal({ project, onClose, onCursorChange }: Cas
               <h4 className="text-xs font-mono text-[#64748B] mb-2 uppercase tracking-wider">ANALYSIS STEPS</h4>
               <ul className="flex flex-col gap-2">
                 {cs.analysis.map((step) => (
-                  <li key={step} className="text-xs text-[#94A3B8] bg-[#0D1118] p-3 rounded-lg border border-white/5 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6]" />
+                  <li key={step} className="flex items-center gap-2 rounded-lg border border-[#D8D3C8] bg-[#F4F1E9] p-3 text-xs text-[#625F59]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#F15A24]" />
                     {step}
                   </li>
                 ))}
@@ -88,8 +88,8 @@ export default function CaseStudyModal({ project, onClose, onCursorChange }: Cas
               <h4 className="text-xs font-mono text-[#64748B] mb-2 uppercase tracking-wider">VISUALISATION & INSIGHTS</h4>
               <ul className="flex flex-col gap-2">
                 {cs.insights.map((insight) => (
-                  <li key={insight} className="text-xs text-white bg-[#0D1118] p-3 rounded-lg border border-white/5 flex items-start gap-2">
-                    <CheckCircle2 size={16} className="text-emerald-400 shrink-0 mt-0.5" />
+                  <li key={insight} className="flex items-start gap-2 rounded-lg border border-[#D8D3C8] bg-[#F4F1E9] p-3 text-xs text-[#242323]">
+                    <CheckCircle2 size={16} className="text-[#3F6B50] shrink-0 mt-0.5" />
                     <span>{insight}</span>
                   </li>
                 ))}
@@ -100,16 +100,16 @@ export default function CaseStudyModal({ project, onClose, onCursorChange }: Cas
           {/* Result & Impact */}
           <div>
             <h4 className="text-xs font-mono text-[#64748B] mb-2 uppercase tracking-wider">RESULT & COMMERCIAL IMPACT</h4>
-            <div className="bg-[#8B5CF6]/10 border border-[#8B5CF6]/30 p-6 rounded-xl text-sm text-white font-medium leading-relaxed">
+            <div className="rounded-xl border border-[#F15A24] bg-[#FCE2D6] p-6 text-sm font-medium leading-relaxed text-[#242323]">
               {cs.result}
             </div>
           </div>
 
           {/* Technologies & Links */}
-          <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-white/10">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[#D8D3C8] pt-6">
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
-                <span key={tech} className="px-2.5 py-1 rounded bg-[#0D1118] border border-white/10 text-xs font-mono text-[#8B5CF6]">
+                <span key={tech} className="rounded-md border border-[#D8D3C8] bg-[#F4F1E9] px-2.5 py-1 text-xs font-mono text-[#3F3D3B]">
                   {tech}
                 </span>
               ))}
@@ -119,11 +119,11 @@ export default function CaseStudyModal({ project, onClose, onCursorChange }: Cas
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-xl bg-[#0D1118] hover:bg-[#111621] border border-white/10 text-white font-mono text-xs flex items-center gap-2 transition-colors"
+                className="flex items-center gap-2 rounded-lg border border-[#242323] bg-[#242323] px-4 py-2 text-xs font-mono text-[#FFFCF2] transition-colors hover:bg-[#F15A24]"
                 onMouseEnter={() => onCursorChange("GITHUB")}
                 onMouseLeave={() => onCursorChange("")}
               >
-                <Github size={14} />
+                <GithubIcon size={14} />
                 <span>GITHUB REPO</span>
               </a>
             </div>
