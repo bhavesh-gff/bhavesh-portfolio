@@ -5,6 +5,10 @@ export const metadata: Metadata = {
   title: "Bhavesh Suthar — Data Analyst & Aspiring Data Scientist",
   description: "BCA Computer Science student turning data into decisions through Python, SQL, Pandas, and data visualization.",
   keywords: ["Data Analyst", "Data Science", "Bhavesh Suthar", "Python", "SQL", "Pandas", "BCA Student Portfolio"],
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({

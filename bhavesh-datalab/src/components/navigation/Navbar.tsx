@@ -45,7 +45,11 @@ export default function Navbar({ onCursorChange }: Readonly<NavbarProps>) {
           onMouseEnter={() => onCursorChange("HOME")}
           onMouseLeave={() => onCursorChange("")}
         >
-          <span className="h-2 w-2 rounded-full bg-[#F15A24]" />
+          <img
+            src="/logo.png"
+            alt="Bhavesh Suthar logo"
+            className="h-8 w-8 shrink-0 object-contain sm:h-9 sm:w-9"
+          />
           <span className="text-[10px] sm:text-xs">BHAVESH SUTHAR</span>
         </a>
 
