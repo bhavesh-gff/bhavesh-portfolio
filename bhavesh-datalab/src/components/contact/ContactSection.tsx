@@ -24,9 +24,9 @@ export default function ContactSection({ onCursorChange }: Readonly<ContactSecti
             return (
               <a
                 key={social.platform}
-                href={isEmail ? "mailto:bhaveshsuthar08835@gmail.com" : social.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={isEmail ? "https://mail.google.com/mail/?view=cm&fs=1&to=bhaveshsuthar08835@gmail.com" : social.url}
+                target={isEmail ? undefined : "_blank"}
+                rel={isEmail ? undefined : "noopener noreferrer"}
                 className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#8A857D] bg-transparent px-4 py-3 text-[10px] font-semibold tracking-[0.16em] text-[#FFFCF2] hover:border-[#F15A24] hover:bg-[#3F3D3B]"
                 onMouseEnter={() => onCursorChange(social.platform.toUpperCase())}
                 onMouseLeave={() => onCursorChange("")}
